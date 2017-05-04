@@ -41,10 +41,6 @@ class Header extends React.Component {
             </a>
           </div>
 
-          <div className="brand hidden-md-down">
-            <h2><Link to="/">{APPCONFIG.brand}</Link></h2>
-          </div>
-
           <div className="top-nav-left hidden-md-down">
             <NavLeftList />
           </div>

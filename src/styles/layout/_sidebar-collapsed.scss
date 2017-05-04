@@ -1,27 +1,74 @@
 // toggler
 // ------
 .sidebar-header {
-  a.collapsednav-toggler {
-    display: inline-block;
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    line-height: 20px;
-    text-align: center;
-    right: 18px;
-    top: 20px; // (60 - 20) /2
-    color: rgba(255,255,255,.55);
-    // padding: 0 5px;
-    .material-icons {
-      font-size: 12px;
+    a.collapsednav-toggler {
+        display: inline-block;
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        line-height: 20px;
+        text-align: center;
+        right: 18px;
+        top: 20px; // (60 - 20) /2
+        color: rgba(255,255,255,.55);
+        // padding: 0 5px;
+        .material-icons {
+            font-size: 12px;
+        }
     }
-  }
+
+}
+.sidebar-sm.nav-collapsed .app-sidebar:hover {
+    width: 220px;
+}
+.sidebar-sm, .sidebar-lg{
+    &.nav-collapsed{
+        .app-sidebar{
+            .sidebar-header {
+
+                .logo{
+                    width: 87%;
+                    height: 87%;
+                    position: absolute;
+                    top: 5px;
+                    left: 0px;
+                    &.full-size{
+                        width:100%;
+                        opacity:0;
+                    }
+                    &.min-size{
+                        width:100%;
+                        opacity:1;
+                    }
+                }
+            }
+            &:hover{
+                .sidebar-header {
+
+                    .logo{
+                        &.full-size{
+                            width:100%;
+                            opacity:1;
+                        }
+                        &.min-size{
+                            width:100%;
+                            opacity:0;
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
 // mobile
 @media only screen and (max-width: $l_screen_sm_max ) {
-  .app-sidebar .sidebar-header a.collapsednav-toggler {
-    display: none;
-  }
+    .app-sidebar{
+        .sidebar-header {
+            a.collapsednav-toggler {
+                display: none;
+            }
+        }
+    }
 }
 
 
@@ -167,7 +214,7 @@
         display: none;
       }
       .nav ul a > div { // for materail-ui FlatButton
-        > span { 
+        > span {
           display: none;
         }
       }
@@ -187,7 +234,7 @@
           margin-right: 0;
         }
 
-        // because of jQuery 
+        // because of jQuery
         ul {
           li {
             > a {
@@ -242,5 +289,3 @@
     }
   }
 }
-
-
