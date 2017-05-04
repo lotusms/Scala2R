@@ -66,4 +66,3 @@ const mapStateToProps = state => ({
 module.exports = connect(
   mapStateToProps
 )(Header);
-
