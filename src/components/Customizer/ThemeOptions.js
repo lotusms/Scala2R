@@ -30,15 +30,6 @@ class ThemeOptions extends React.Component {
           </div>
           <div className="col-4">
             <label className="theme-option-check">
-              <input type="radio" name="theme" value="gray" checked={theme === 'gray'} onChange={this.onChange} />
-              <span className="theme-option-item bg-color-gray">
-                <span className="overlay"><span className="material-icons">check</span></span>
-                <span>Gray</span>
-              </span>
-            </label>
-          </div>
-          <div className="col-4">
-            <label className="theme-option-check">
               <input type="radio" name="theme" value="light" checked={theme === 'light'} onChange={this.onChange} />
               <span className="theme-option-item bg-color-page">
                 <span className="overlay"><span className="material-icons">check</span></span>

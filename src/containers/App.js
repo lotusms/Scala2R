@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
 import { connect } from 'react-redux';
 import classnames from 'classnames';
 import injectTapEventPlugin from 'react-tap-event-plugin';
@@ -16,7 +17,6 @@ import 'styles/app.scss';
 
 import lightTheme from './themes/lightTheme';
 import darkTheme from './themes/darkTheme';
-import grayTheme from './themes/grayTheme';
 
 
 injectTapEventPlugin(); // Needed for onTouchTap for Material UI
@@ -26,17 +26,14 @@ class App extends Component {
   componentDidMount() {}
 
   render() {
-    const { layoutBoxed, navCollapsed, navBehind, fixedHeader, sidebarWidth, theme } = this.props;
+    const { navCollapsed, navBehind, fixedHeader, sidebarWidth, theme } = this.props;
     let materialUITheme;
     switch (theme) {
-      case 'gray':
-        materialUITheme = grayTheme;
-        break;
-      case 'dark':
-        materialUITheme = darkTheme;
+      case 'light':
+        materialUITheme = lightTheme;
         break;
       default:
-        materialUITheme = lightTheme;
+        materialUITheme = darkTheme;
     }
 
     return (
@@ -48,11 +45,9 @@ class App extends Component {
               'fixed-header': fixedHeader,
               'nav-collapsed': navCollapsed,
               'nav-behind': navBehind,
-              'layout-boxed': layoutBoxed,
-              'theme-gray': theme === 'gray',
               'theme-dark': theme === 'dark',
-              'sidebar-sm': sidebarWidth === 'small',
-              'sidebar-lg': sidebarWidth === 'large'})
+              'theme-light': theme === 'light',
+              'sidebar-sm': sidebarWidth === 'small'})
                     }>
             {this.props.children}
           </div>

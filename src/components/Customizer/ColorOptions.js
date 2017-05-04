@@ -20,7 +20,6 @@ class ColorSchemeOptions extends React.Component {
     return (
       <section>
         <h4 className="section-header">Color Options</h4>
-        <p className="small no-margin">Tip: Additionally, you can active "Full Width Header" above</p>
         <div className="divider" />
         <div className="row">
           <div className="col-4">
@@ -136,6 +135,7 @@ class ColorSchemeOptions extends React.Component {
               </span>
             </label>
           </div>
+
           <div className="col-4">
             <label className="color-option-check">
               <input type="radio" name="color" value="31" checked={colorOption === '31'} onChange={this.onChange} />
@@ -203,7 +203,6 @@ const mapStateToProps = state => ({
 });
 const mapDispatchToProps = dispatch => ({
   handleChange: (colorOption) => {
-    // console.log('change color option to: ' + colorOption);
     dispatch(changeColorOption(colorOption));
   }
 });

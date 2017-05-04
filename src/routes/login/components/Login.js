@@ -1,8 +1,11 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import APPCONFIG from 'constants/Config';
 import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
 import QueueAnim from 'rc-queue-anim';
+
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 class Login extends React.Component {
   constructor() {

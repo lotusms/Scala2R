@@ -42,12 +42,12 @@ class Sidebar extends React.Component {
       <nav
         className={classnames('app-sidebar', {
           'bg-color-light': ['31', '32', '33', '34', '35', '36'].indexOf(colorOption) >= 0,
-          'bg-color-dark': ['31', '32', '33', '34', '35', '36'].indexOf(colorOption) < 0 })}
+          'bg-color-dark': ['21', '22', '23', '24', '25', '26'].indexOf(colorOption) < 0 })}
             >
         <section
           className={classnames('sidebar-header', {
             'bg-color-dark': ['11', '31'].indexOf(colorOption) >= 0,
-            'bg-color-light': colorOption === '21',
+            'bg-color-light': colorOption === '26',
             'bg-color-primary': ['12', '22', '32'].indexOf(colorOption) >= 0,
             'bg-color-success': ['13', '23', '33'].indexOf(colorOption) >= 0,
             'bg-color-info': ['14', '24', '34'].indexOf(colorOption) >= 0,
@@ -102,4 +102,3 @@ module.exports = connect(
   mapStateToProps,
   mapDispatchToProps
 )(Sidebar);
-

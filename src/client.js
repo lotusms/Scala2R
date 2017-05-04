@@ -22,7 +22,7 @@ const rootRoute = {
   childRoutes: [{
     path: '/',
     component: require('./containers/App'),
-    indexRoute: { onEnter: (nextState, replace) => replace('/app/dashboard') },
+    indexRoute: { onEnter: (nextState, replace) => replace('/login') },
     childRoutes: [
       require('./routes/app'),
       require('./routes/404'),

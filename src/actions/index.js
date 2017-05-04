@@ -1,8 +1,8 @@
 import * as types from '../constants/ActionTypes';
 
-export function toggleBoxedLayout(isLayoutBoxed) {
-  return { type: types.TOGGLE_BOXED_LAYOUT, isLayoutBoxed };
-}
+// export function toggleBoxedLayout(isLayoutBoxed) {
+//   return { type: types.TOGGLE_BOXED_LAYOUT, isLayoutBoxed };
+// }
 export function togglCollapsedNav(isNavCollapsed) {
   return { type: types.TOGGLE_COLLAPSED_NAV, isNavCollapsed };
 }

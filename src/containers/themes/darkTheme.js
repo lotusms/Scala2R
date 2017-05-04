@@ -1,5 +1,6 @@
 import {
-  cyan700,
+  deepOrange900,
+  deepOrange400,
   grey600,
   green600, green400, green200,
   fullWhite,
@@ -15,10 +16,10 @@ export default {
   fontFamily: 'Roboto, sans-serif',
   borderRadius: 2,
   palette: {
-    primary1Color: cyan700,
-    primary2Color: cyan700,
+    primary1Color: deepOrange900,
+    primary2Color: deepOrange400,
     primary3Color: grey600,
-    accent1Color: green600,
+    accent1Color: deepOrange400,
     accent2Color: green400,
     accent3Color: green200,
     textColor: 'rgba(255,255,255,.7)',

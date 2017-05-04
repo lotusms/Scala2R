@@ -1,7 +1,6 @@
 import 'jquery-slimscroll/jquery.slimscroll.min';
 import React from 'react';
 import APPCONFIG from 'constants/Config';
-import LayoutOptions from './LayoutOptions';
 import ColorOptions from './ColorOptions';
 import ThemeOptions from './ThemeOptions';
 
@@ -28,9 +27,7 @@ class Customizer extends React.Component {
   render() {
     return (
       <section
-        className="quickview-wrapper customizer hidden-lg-down theme-light"
-        id="quickview-customizer"
-            >
+        className="quickview-wrapper customizer hidden-lg-down theme-dark" id="quickview-customizer">
         <a className="customizer-close" href="javascript:;" onClick={this.closeCustomizer}>
           <span className="material-icons">close</span>
         </a>
@@ -39,22 +36,10 @@ class Customizer extends React.Component {
         </a>
 
         <div className="quickview-inner" ref={(c) => { this.quickview = c; }}>
-          <p className="customizer-header">Customizer</p>
-          <p className="small no-margin">Customize and preview in real time.</p>
-
-          <div className="divider divider-lg divider-solid" />
-          <LayoutOptions />
-
-          <div className="divider divider-lg divider-solid" />
           <ColorOptions />
 
           <div className="divider divider-lg divider-solid" />
           <ThemeOptions />
-
-          <div className="divider divider-lg divider-solid" />
-          <div className="text-right">
-            <a target="_blank" href={APPCONFIG.productLink}>Download it Now</a>
-          </div>
         </div>
       </section>
     );
