@@ -2,7 +2,6 @@ import 'jquery-slimscroll/jquery.slimscroll.min';
 import React from 'react';
 import APPCONFIG from 'constants/Config';
 import ColorOptions from './ColorOptions';
-import ThemeOptions from './ThemeOptions';
 
 class Customizer extends React.Component {
 
@@ -37,9 +36,6 @@ class Customizer extends React.Component {
 
         <div className="quickview-inner" ref={(c) => { this.quickview = c; }}>
           <ColorOptions />
-
-          <div className="divider divider-lg divider-solid" />
-          <ThemeOptions />
         </div>
       </section>
     );

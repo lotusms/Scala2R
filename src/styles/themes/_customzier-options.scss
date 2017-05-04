@@ -24,8 +24,8 @@ $theme_option_item_height: 60px;
       height: 100%;
       background-color: rgba(0,0,0,.3);
       text-align: center;
-      line-height: 30px; 
-      color: #fff;       
+      line-height: 30px;
+      color: #fff;
     }
   }
   input[type="radio"]:checked + span {
@@ -34,7 +34,7 @@ $theme_option_item_height: 60px;
     }
   }
 
-  // 
+  //
   .color-option-item {
     overflow: hidden;
     display: block;
@@ -58,6 +58,10 @@ $theme_option_item_height: 60px;
 .color-option-check {
   .bg-color-page {
     background-color: #f1f1f1;
+    &.bg-color-dark {
+        background-color: #000000;
+        color: #fff;
+    }
   }
 }
 
@@ -93,12 +97,12 @@ $theme_option_item_height: 60px;
       height: 100%;
       // background-color: rgba(0,0,0,.2);
       text-align: center;
-      line-height: $theme_option_item_height; 
+      line-height: $theme_option_item_height;
       color: #fff;
       .material-icons {
         vertical-align: bottom;
         color: $brand-success;
-      }       
+      }
     }
   }
   input[type="radio"]:checked + span {
@@ -107,7 +111,7 @@ $theme_option_item_height: 60px;
     }
   }
 
-  // 
+  //
   .theme-option-item {
     overflow: hidden;
     display: block;

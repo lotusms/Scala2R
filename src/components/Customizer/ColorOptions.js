@@ -82,7 +82,7 @@ class ColorSchemeOptions extends React.Component {
           <div className="col-4">
             <label className="color-option-check">
               <input type="radio" name="color" value="21" checked={colorOption === '21'} onChange={this.onChange} />
-              <span className="color-option-item bg-color-page">
+              <span className="color-option-item bg-color-page bg-color-dark">
                 <span className="overlay"><span className="material-icons">check</span></span>
                 <span className="bg-color-dark item-header" />
                 <span className="bg-color-dark item-header" />
@@ -91,7 +91,7 @@ class ColorSchemeOptions extends React.Component {
             </label>
             <label className="color-option-check">
               <input type="radio" name="color" value="22" checked={colorOption === '22'} onChange={this.onChange} />
-              <span className="color-option-item bg-color-page">
+              <span className="color-option-item bg-color-page bg-color-dark">
                 <span className="overlay"><span className="material-icons">check</span></span>
                 <span className="bg-color-primary item-header" />
                 <span className="bg-color-primary item-header" />
@@ -100,7 +100,7 @@ class ColorSchemeOptions extends React.Component {
             </label>
             <label className="color-option-check">
               <input type="radio" name="color" value="23" checked={colorOption === '23'} onChange={this.onChange} />
-              <span className="color-option-item bg-color-page">
+              <span className="color-option-item bg-color-page bg-color-dark">
                 <span className="overlay"><span className="material-icons">check</span></span>
                 <span className="bg-color-success item-header" />
                 <span className="bg-color-success item-header" />
@@ -109,7 +109,7 @@ class ColorSchemeOptions extends React.Component {
             </label>
             <label className="color-option-check">
               <input type="radio" name="color" value="24" checked={colorOption === '24'} onChange={this.onChange} />
-              <span className="color-option-item bg-color-page">
+              <span className="color-option-item bg-color-page bg-color-dark">
                 <span className="overlay"><span className="material-icons">check</span></span>
                 <span className="bg-color-info item-header" />
                 <span className="bg-color-info item-header" />
@@ -118,7 +118,7 @@ class ColorSchemeOptions extends React.Component {
             </label>
             <label className="color-option-check">
               <input type="radio" name="color" value="25" checked={colorOption === '25'} onChange={this.onChange} />
-              <span className="color-option-item bg-color-page">
+              <span className="color-option-item bg-color-page bg-color-dark">
                 <span className="overlay"><span className="material-icons">check</span></span>
                 <span className="bg-color-warning item-header" />
                 <span className="bg-color-warning item-header" />
@@ -127,7 +127,7 @@ class ColorSchemeOptions extends React.Component {
             </label>
             <label className="color-option-check">
               <input type="radio" name="color" value="26" checked={colorOption === '26'} onChange={this.onChange} />
-              <span className="color-option-item bg-color-page">
+              <span className="color-option-item bg-color-page bg-color-dark">
                 <span className="overlay"><span className="material-icons">check</span></span>
                 <span className="bg-color-danger item-header" />
                 <span className="bg-color-danger item-header" />

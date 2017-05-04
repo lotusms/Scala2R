@@ -23,8 +23,8 @@ const APPCONFIG = {
     navBehind: false,                               // true, false
     fixedHeader: true,                              // true, false
     sidebarWidth: 'small',                         // small, middle, large
-    colorOption: '26',                              // String: 11,12,13,14,15,16; 21,22,23,24,25,26; 31,32,33,34,35,36
-    theme: 'dark',                                 // light, gray, dark
+    colorOption: '21',                              // String: 11,12,13,14,15,16; 21,22,23,24,25,26; 31,32,33,34,35,36
+    theme: 'light',                                 // light, gray, dark
   }
 };
 
