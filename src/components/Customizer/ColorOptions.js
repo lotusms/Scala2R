@@ -84,8 +84,8 @@ class ColorSchemeOptions extends React.Component {
               <input type="radio" name="color" value="21" checked={colorOption === '21'} onChange={this.onChange} />
               <span className="color-option-item bg-color-page">
                 <span className="overlay"><span className="material-icons">check</span></span>
-                <span className="bg-color-light item-header" />
-                <span className="bg-color-light item-header" />
+                <span className="bg-color-dark item-header" />
+                <span className="bg-color-dark item-header" />
                 <span className="bg-color-dark" />
               </span>
             </label>
