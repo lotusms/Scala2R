@@ -1,0 +1,12 @@
+.quickpanel{
+	display: block;
+    z-index: $l_zindex_sidebar_mobile;
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    height: 100vh; // Fix(Safari): Fix sidebar fail to on safari
+    width: $l_sidebar_width;
+    overflow: hidden;
+    background-color: $l_gray_dark;
+}

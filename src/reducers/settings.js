@@ -2,6 +2,7 @@ import APPCONFIG from 'constants/Config';
 import {
   TOGGLE_BOXED_LAYOUT,
   TOGGLE_COLLAPSED_NAV,
+  TOGGLE_COLLAPSED_QUICKPANEL,
   TOGGLE_NAV_BEHIND,
   TOGGLE_FIXED_HEADER,
   CHANGE_SIDEBAR_WIDTH,
@@ -23,6 +24,11 @@ const settings = (state = initialSettings, action) => {
       return {
         ...state,
         navCollapsed: action.isNavCollapsed
+      };
+    case TOGGLE_COLLAPSED_QUICKPANEL:
+      return {
+        ...state,
+        panelCollapsed: action.isPanelCollapsed
       };
     case TOGGLE_NAV_BEHIND:
       return {

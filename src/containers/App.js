@@ -26,7 +26,7 @@ class App extends Component {
   componentDidMount() {}
 
   render() {
-    const { navCollapsed, navBehind, fixedHeader, sidebarWidth, theme } = this.props;
+    const { navCollapsed, panelCollapsed, navBehind, fixedHeader, sidebarWidth, theme } = this.props;
     let materialUITheme;
     switch (theme) {
       case 'light':
@@ -44,6 +44,7 @@ class App extends Component {
             className={classnames('full-height', {
               'fixed-header': fixedHeader,
               'nav-collapsed': navCollapsed,
+              'quickpanel-collapsed': panelCollapsed,
               'nav-behind': navBehind,
               'theme-dark': theme === 'dark',
               'theme-light': theme === 'light',
@@ -60,6 +61,7 @@ class App extends Component {
 const mapStateToProps = (state, ownProps) => ({
   layoutBoxed: state.settings.layoutBoxed,
   navCollapsed: state.settings.navCollapsed,
+  panelCollapsed: state.settings.panelCollapsed,
   navBehind: state.settings.navBehind,
   fixedHeader: state.settings.fixedHeader,
   sidebarWidth: state.settings.sidebarWidth,

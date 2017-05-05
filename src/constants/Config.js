@@ -20,6 +20,7 @@ const APPCONFIG = {
   },
   settings: {
     navCollapsed: false,                            // true, false
+    panelCollapsed: false,                            // true, false
     navBehind: false,                               // true, false
     fixedHeader: true,                              // true, false
     sidebarWidth: 'small',                         // small, middle, large

@@ -14,7 +14,7 @@ const sideWidthSelectStyle = {
 class LayoutOptions extends React.Component {
 
   render() {
-    const { navCollapsed, navBehind, fixedHeader, sidebarWidth } = this.props;
+    const { navCollapsed, panelCollapsed, navBehind, fixedHeader, sidebarWidth } = this.props;
 
     return (
       <section className="customizer-layout-options">
@@ -25,6 +25,7 @@ class LayoutOptions extends React.Component {
 
 const mapStateToProps = state => ({
   navCollapsed: state.settings.navCollapsed,
+	panelCollapsed: state.settings.panelCollapsed,
   navBehind: state.settings.navBehind,
   fixedHeader: state.settings.fixedHeader
 });
@@ -34,6 +35,9 @@ const mapDispatchToProps = dispatch => ({
   },
   handleToggleCollapsedNav: (isNavCollapsed) => {
     dispatch(togglCollapsedNav(isNavCollapsed));
+  },
+  handleToggleCollapsedPanel: (isPanelCollapsed) => {
+    dispatch(toggleCollapsedQuickpanel(isPanelCollapsed));
   },
   handleToggleNavBehind: (isNavBehind) => {
     dispatch(toggleNavBehind(isNavBehind));

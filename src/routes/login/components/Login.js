@@ -44,7 +44,7 @@ class Login extends React.Component {
             </form>
           </div>
           <div className="card-action no-border text-right">
-            <a href="#/" className="color-primary">Login</a>
+            <a href="#/app/dashboard" className="color-primary">Login</a>
           </div>
         </div>
 
