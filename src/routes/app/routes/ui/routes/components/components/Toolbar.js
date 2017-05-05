@@ -1,4 +1,6 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import classnames from 'classnames';
 import IconMenu from 'material-ui/IconMenu';
 import IconButton from 'material-ui/IconButton';
 import FontIcon from 'material-ui/FontIcon';
@@ -20,6 +22,7 @@ class ToolbarExamplesSimple extends React.Component {
   handleChange = (event, index, value) => this.setState({value});
 
   render() {
+    const { colorOption } = this.props;
     return (
       <Toolbar>
         <ToolbarGroup firstChild>
@@ -56,7 +59,11 @@ class ToolbarExamplesSimple extends React.Component {
 
 const ToolbarSection = () => (
   <article className="article">
-    <h2 className="article-title">Material Toolbar</h2>
+    <h2
+      className={classnames('article-title', {
+          'bg-color-light': ['31', '32', '33', '34', '35', '36'].indexOf(colorOption) >= 0,
+          'bg-color-dark': ['21', '22', '23', '24', '25', '26'].indexOf(colorOption) >= 0
+          })}>Material Toolbar</h2>
     <div className="box box-default">
       <div className="box-body padding-xl">
         <ToolbarExamplesSimple />
@@ -65,5 +72,10 @@ const ToolbarSection = () => (
   </article>
     );
 
-
-module.exports = ToolbarSection;
+    const mapStateToProps = state => ({
+        colorOption: state.settings.colorOption
+    });
+    module.exports = connect(
+        mapStateToProps
+        //mapDispatchToProps
+    )(ToolbarSection);
