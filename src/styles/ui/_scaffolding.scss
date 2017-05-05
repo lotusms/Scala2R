@@ -5,13 +5,12 @@
   font-weight: normal;
   line-height: 32px;
   margin: .6em 0;
-  color: $brand-primary;
   &.color-dark {
     color: $body-color;
   }
 }
 
-// 
+//
 .chapter {
   .article {
     padding-bottom: 30px;
@@ -42,12 +41,9 @@
 
   .article-title {
     font-size: 24px;
-    padding-top: 80px;
     font-weight: normal;
     line-height: 32px;
-    margin: 48px 0 30px;
     border-top: 1px solid rgba(0, 0, 0, 0.117647);
-    color: $brand-primary;
   }
 }
 

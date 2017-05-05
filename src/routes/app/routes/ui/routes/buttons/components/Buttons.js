@@ -1,4 +1,6 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import classnames from 'classnames';
 import FlatButton from 'material-ui/FlatButton';
 import RaisedButton from 'material-ui/RaisedButton';
 import FloatingActionButton from 'material-ui/FloatingActionButton';
@@ -11,141 +13,185 @@ const mWidthStyle = {
   minWidth: '135px'
 };
 
-const FAB = () => (
-  <div className="row">
-    <div className="col-xl-5">
+class PageContent extends React.Component {
+  render() {
+    const { colorOption } = this.props;
+    const FAB = () => (
+      <div className="row">
+        <div className="col-xl-6">
+          <div
+            className={classnames('box', {
+              'bg-color-medlight': ['31', '32', '33', '34', '35', '36'].indexOf(colorOption) >= 0,
+              'bg-color-meddark': ['21', '22', '23', '24', '25', '26'].indexOf(colorOption) >= 0
+              })}>
+            <div className="box-header">FAB</div>
+            <div className="box-body text-center">
 
-      <div className="box box-default">
-        <div className="box-header">FAB</div>
-        <div className="box-body text-center">
+              <FloatingActionButton>
+                <ContentAdd />
+              </FloatingActionButton>
+              <span className="space" />
 
-          <FloatingActionButton>
-            <ContentAdd />
-          </FloatingActionButton>
-          <span className="space" />
+              <FloatingActionButton mini>
+                <ContentAdd />
+              </FloatingActionButton>
+              <span className="space space-md" />
 
-          <FloatingActionButton mini>
-            <ContentAdd />
-          </FloatingActionButton>
-          <span className="space space-md" />
+              <FloatingActionButton secondary>
+                <ContentAdd />
+              </FloatingActionButton>
+              <span className="space" />
 
-          <FloatingActionButton secondary>
-            <ContentAdd />
-          </FloatingActionButton>
-          <span className="space" />
+              <FloatingActionButton mini secondary>
+                <ContentAdd />
+              </FloatingActionButton>
+              <span className="space space-md" />
 
-          <FloatingActionButton mini secondary>
-            <ContentAdd />
-          </FloatingActionButton>
-          <span className="space space-md" />
+              <FloatingActionButton disabled>
+                <ContentAdd />
+              </FloatingActionButton>
+              <span className="space" />
 
-          <FloatingActionButton disabled>
-            <ContentAdd />
-          </FloatingActionButton>
-          <span className="space" />
+              <FloatingActionButton mini disabled>
+                <ContentAdd />
+              </FloatingActionButton>
 
-          <FloatingActionButton mini disabled>
-            <ContentAdd />
-          </FloatingActionButton>
+            </div>
+          </div>
+
+        </div>
+        <div className="col-xl-6">
+
+			<div
+              className={classnames('box', {
+                'bg-color-medlight': ['31', '32', '33', '34', '35', '36'].indexOf(colorOption) >= 0,
+                'bg-color-meddark': ['21', '22', '23', '24', '25', '26'].indexOf(colorOption) >= 0
+                })}>
+            <div className="box-header">Icon Button</div>
+            <div className="box-body text-center">
+
+              <IconButton> <ContentAdd /> </IconButton>
+              <span className="space" />
+
+              <IconButton> <ContentAdd /> </IconButton>
+              <span className="space" />
+
+              <IconButton disabled> <ContentAdd /> </IconButton>
+
+            </div>
+          </div>
 
         </div>
       </div>
+    );
 
-    </div>
-    <div className="col-xl-5">
+    const Raised = () => (
+      <div className="row">
+        <div className="col-xl-6">
 
-      <div className="box box-default">
-        <div className="box-header">Icon Button</div>
-        <div className="box-body text-center">
+			<div
+              className={classnames('box', {
+                'bg-color-medlight': ['31', '32', '33', '34', '35', '36'].indexOf(colorOption) >= 0,
+                'bg-color-meddark': ['21', '22', '23', '24', '25', '26'].indexOf(colorOption) >= 0
+                })}>
+            <div className="box-header">Raised</div>
+            <div className="box-body text-center">
+              <RaisedButton style={mWidthStyle} label="Default" /><div className="divider" />
+              <RaisedButton style={mWidthStyle} label="Primary" primary /><div className="divider" />
+              <RaisedButton style={mWidthStyle} label="Secondary" secondary /><div className="divider" />
+              <RaisedButton style={mWidthStyle} label="Disabled" disabled /><div className="divider" />
+            </div>
+          </div>
 
-          <IconButton> <ContentAdd /> </IconButton>
-          <span className="space" />
+        </div>
+        <div className="col-xl-6">
 
-          <IconButton> <ContentAdd /> </IconButton>
-          <span className="space" />
-
-          <IconButton disabled> <ContentAdd /> </IconButton>
+			<div
+              className={classnames('box', {
+                'bg-color-medlight': ['31', '32', '33', '34', '35', '36'].indexOf(colorOption) >= 0,
+                'bg-color-meddark': ['21', '22', '23', '24', '25', '26'].indexOf(colorOption) >= 0
+                })}>
+            <div className="box-header">Flat</div>
+            <div className="box-body text-center">
+              <FlatButton style={mWidthStyle} label="Default" /><div className="divider" />
+              <FlatButton style={mWidthStyle} label="Primary" primary /><div className="divider" />
+              <FlatButton style={mWidthStyle} label="Secondary" secondary /><div className="divider" />
+              <FlatButton style={mWidthStyle} label="Disabled" disabled /><div className="divider" />
+            </div>
+          </div>
 
         </div>
       </div>
+    );
 
-    </div>
-  </div>
-);
+    const Raised2 = () => (
+      <div className="row">
+        <div className="col-xl-6">
+			<div
+			  className={classnames('box', {
+				'bg-color-medlight': ['31', '32', '33', '34', '35', '36'].indexOf(colorOption) >= 0,
+				'bg-color-meddark': ['21', '22', '23', '24', '25', '26'].indexOf(colorOption) >= 0
+				})}>
+            <div className="box-header">Raised</div>
+            <div className="box-body text-center">
+              <RaisedButton style={mWidthStyle} label="Left Icon" labelPosition="after" primary icon={<ContentAdd />} /><div className="divider" />
+              <RaisedButton style={mWidthStyle} label="Right Icon" labelPosition="before" secondary icon={<ContentAdd />} /><div className="divider" />
+              <RaisedButton style={mWidthStyle} label="Link Button" href="https://github.com/" target="_blank" secondary /><div className="divider" />
+            </div>
+          </div>
 
-const Raised = () => (
-  <div className="row">
-    <div className="col-xl-5">
+        </div>
+        <div className="col-xl-6">
+			<div
+			  className={classnames('box', {
+				'bg-color-medlight': ['31', '32', '33', '34', '35', '36'].indexOf(colorOption) >= 0,
+				'bg-color-meddark': ['21', '22', '23', '24', '25', '26'].indexOf(colorOption) >= 0
+				})}>
+            <div className="box-header">Flat</div>
+            <div className="box-body text-center">
+              <FlatButton style={mWidthStyle} label="Left Icon" labelPosition="after" primary icon={<ContentAdd />} /><div className="divider" />
+              <FlatButton style={mWidthStyle} label="Right Icon" labelPosition="before" secondary icon={<ContentAdd />} /><div className="divider" />
+              <FlatButton style={mWidthStyle} label="Link Button" href="https://github.com/" target="_blank" secondary /><div className="divider" />
+            </div>
+          </div>
 
-      <div className="box box-default">
-        <div className="box-header">Raised</div>
-        <div className="box-body text-center">
-          <RaisedButton style={mWidthStyle} label="Default" /><div className="divider" />
-          <RaisedButton style={mWidthStyle} label="Primary" primary /><div className="divider" />
-          <RaisedButton style={mWidthStyle} label="Secondary" secondary /><div className="divider" />
-          <RaisedButton style={mWidthStyle} label="Disabled" disabled /><div className="divider" />
         </div>
       </div>
+    );
 
-    </div>
-    <div className="col-xl-5">
+    return (
+      	<section className="chapter">
+        	<article className="article">
+          		<h2
+            		className={classnames('article-title', {
+						'bg-color-light': ['11', '21'].indexOf(colorOption) >= 0,
+						'bg-color-dark': ['21', '31'].indexOf(colorOption) >= 0,
+						'bg-color-primary': ['22', '32'].indexOf(colorOption) >= 0,
+						'bg-color-success': ['23', '33'].indexOf(colorOption) >= 0,
+						'bg-color-info': ['24', '34'].indexOf(colorOption) >= 0,
+						'bg-color-warning': ['25', '35'].indexOf(colorOption) >= 0,
+						'bg-color-danger': ['26', '36'].indexOf(colorOption) >= 0
+                		})}>
+                		Material Buttons</h2>
 
-      <div className="box box-default">
-        <div className="box-header">Flat</div>
-        <div className="box-body text-center">
-          <FlatButton style={mWidthStyle} label="Default" /><div className="divider" />
-          <FlatButton style={mWidthStyle} label="Primary" primary /><div className="divider" />
-          <FlatButton style={mWidthStyle} label="Secondary" secondary /><div className="divider" />
-          <FlatButton style={mWidthStyle} label="Disabled" disabled /><div className="divider" />
-        </div>
-      </div>
+          		<QueueAnim type="bottom" className="ui-animate main-content">
+            		<div key="1"><FAB /></div>
+		            <div key="2"><Raised /></div>
+		            <div key="3"><Raised2 /></div>
+          		</QueueAnim>
 
-    </div>
-  </div>
-);
+        	</article>
+      	</section>
 
-const Raised2 = () => (
-  <div className="row">
-    <div className="col-xl-5">
+    );
+  }
+}
 
-      <div className="box box-default">
-        <div className="box-header">Raised</div>
-        <div className="box-body text-center">
-          <RaisedButton style={mWidthStyle} label="Left Icon" labelPosition="after" primary icon={<ContentAdd />} /><div className="divider" />
-          <RaisedButton style={mWidthStyle} label="Right Icon" labelPosition="before" secondary icon={<ContentAdd />} /><div className="divider" />
-          <RaisedButton style={mWidthStyle} label="Link Button" href="https://github.com/" target="_blank" secondary /><div className="divider" />
-        </div>
-      </div>
+const mapStateToProps = state => ({
+    colorOption: state.settings.colorOption
+});
 
-    </div>
-    <div className="col-xl-5">
 
-      <div className="box box-default">
-        <div className="box-header">Flat</div>
-        <div className="box-body text-center">
-          <FlatButton style={mWidthStyle} label="Left Icon" labelPosition="after" primary icon={<ContentAdd />} /><div className="divider" />
-          <FlatButton style={mWidthStyle} label="Right Icon" labelPosition="before" secondary icon={<ContentAdd />} /><div className="divider" />
-          <FlatButton style={mWidthStyle} label="Link Button" href="https://github.com/" target="_blank" secondary /><div className="divider" />
-        </div>
-      </div>
-
-    </div>
-  </div>
-);
-
-const Page = () => (
-  <section className="container-fluid with-maxwidth chapter">
-    <article className="article">
-      <h2 className="article-title">Material Buttons</h2>
-
-      <QueueAnim type="bottom" className="ui-animate">
-        <div key="1"><FAB /></div>
-        <div key="2"><Raised /></div>
-        <div key="3"><Raised2 /></div>
-      </QueueAnim>
-
-    </article>
-  </section>
-);
-
-module.exports = Page;
+module.exports = connect(
+    mapStateToProps
+)(PageContent);

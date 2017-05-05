@@ -23,10 +23,12 @@
 .bg-color-page { @include bg-style($page-bg, $body-color); }
 
 .bg-color-light { @include bg-style($white, $body-color); }
+.bg-color-medlight { @include bg-style(darken($white, 5%), $body-color); }
 .bg-color-white { @include bg-style(#fff, $body-color); }
 
 .bg-color-gray { @include bg-style($gray-light, #fff); }
 .bg-color-dark { @include bg-style($dark, #fff); }
+.bg-color-meddark { @include bg-style(lighten($dark, 5%), #fff); }
 .bg-color-primary { @include bg-style($brand-primary, #fff); }
 .bg-color-success { @include bg-style($brand-success, #fff); }
 .bg-color-info { @include bg-style($brand-info, #fff); }
@@ -43,4 +45,3 @@
   .bg-color-info { @include bg-style($brand-info, #fff); }
   .bg-color-danger { @include bg-style($brand-danger, #fff); }
 }
-

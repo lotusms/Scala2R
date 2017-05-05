@@ -16,7 +16,7 @@
 
 // put color in .box-default, so .bg-xxx can overrides box color easily
 .box-default {
-  background-color: $card-bg;
+  //background-color: lighten($dark, 5%);
 }
 
 .box-header,
@@ -79,5 +79,3 @@
     background-color: $theme_dark_box_bg;
   }
 }
-
-

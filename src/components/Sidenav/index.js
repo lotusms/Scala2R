@@ -46,13 +46,8 @@ class Sidebar extends React.Component {
                 })}>
                 <section
                     className={classnames('sidebar-header', {
-                        'bg-color-dark': ['11', '21', '31'].indexOf(colorOption) >= 0,
-                        'bg-color-light': colorOption === '26',
-                        'bg-color-primary': ['12', '22', '32'].indexOf(colorOption) >= 0,
-                        'bg-color-success': ['13', '23', '33'].indexOf(colorOption) >= 0,
-                        'bg-color-info': ['14', '24', '34'].indexOf(colorOption) >= 0,
-                        'bg-color-warning': ['15', '25', '35'].indexOf(colorOption) >= 0,
-                        'bg-color-danger': ['16', '26', '36'].indexOf(colorOption) >= 0
+						'bg-color-light': ['31', '32', '33', '34', '35', '36'].indexOf(colorOption) >= 0,
+						'bg-color-dark': ['21', '22', '23', '24', '25', '26'].indexOf(colorOption) >= 0
                     })}>
                     <img className="logo full-size" src="../../assets/ScalaCM.svg" alt=""/>
                     <img className="logo min-size" src="../../assets/ScalaCMsm.svg" alt=""/>
