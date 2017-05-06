@@ -22,14 +22,14 @@ class DashboardContent extends React.Component {
   						'bg-color-meddark': ['21', '22', '23', '24', '25', '26'].indexOf(colorOption) >= 0
 		                })}>
 						<div className="box-top">
-							<span>35<span className="size-h5">%</span>
-							</span>
+							<span>Media</span>
+							<i className="material-icons">more_vert</i>
 						</div>
 						<div className="box-info">
-							<span>Growth</span>
+							<i className="material-icons">perm_media</i>
 						</div>
 						<div className="box-bottom">
-							<i className="material-icons color-success">airplanemode_active</i>
+							<span>20</span>
 						</div>
 					</div>
 				</Col>

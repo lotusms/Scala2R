@@ -65,8 +65,7 @@ class WebpackDevConfig extends WebpackBaseConfig {
       },{
         test: /\.css$/,
         loader: 'style-loader!css-loader!postcss-loader',
-        //include: path.join(__dirname, 'node_modules'), // oops, this also includes flexboxgrid
-        exclude: /flexboxgrid/ // so we have to exclude it
+        exclude: /flexboxgrid/
       }
     ])
 
