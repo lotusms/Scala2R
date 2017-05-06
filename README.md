@@ -24,10 +24,10 @@ Ensure whenever an additional npm or bower package is installed that it is saved
 npm install mypackage --save
 ```
 
-## Important Documentations
+# Important Documentations
 
-# React-FlexBox-Grid
+## React-FlexBox-Grid
 Although it generates bootstrap-like classes IT IS NOT Bootstrap)- http://roylee0704.github.io/react-flexbox-grid/
 
-#Material Icons
+## Material Icons
 Source of material icons https://material.io/icons/
