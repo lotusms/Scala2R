@@ -38,8 +38,7 @@ class WebpackDevConfig extends WebpackBaseConfig {
             loader: 'css-loader',
             options: {
               sourceMap: true
-            },
-  					include: /flexboxgrid/
+            }
           },
           { loader: 'sass-loader',
             options: {
@@ -63,6 +62,11 @@ class WebpackDevConfig extends WebpackBaseConfig {
             }
           }
         ]
+      },{
+        test: /\.css$/,
+        loader: 'style-loader!css-loader!postcss-loader',
+        //include: path.join(__dirname, 'node_modules'), // oops, this also includes flexboxgrid
+        exclude: /flexboxgrid/ // so we have to exclude it
       }
     ])
 

@@ -1,8 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import classnames from 'classnames';
-import Layout from 'material-ui/Layout';
-import Paper from 'material-ui/Paper';
 import QueueAnim from 'rc-queue-anim';
 import KPIsChart from './KPIsChart';
 import AquisitionChart from './AquisitionChart';
