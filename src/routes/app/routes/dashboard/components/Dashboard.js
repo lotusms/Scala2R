@@ -1,6 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import classnames from 'classnames';
+import IconMenu from 'material-ui/IconMenu';
+import MenuItem from 'material-ui/MenuItem';
+import IconButton from 'material-ui/IconButton/IconButton';
 import QueueAnim from 'rc-queue-anim';
 import KPIsChart from './KPIsChart';
 import AquisitionChart from './AquisitionChart';
@@ -9,6 +12,9 @@ import EngagementStats from './EngagementStats';
 import BenchmarkChart from './BenchmarkChart';
 import { Row, Col, getRowProps, getColumnProps } from 'react-flexbox-grid';
 
+const IconButtonStyle = {
+	color: '#eee'
+};
 
 class DashboardContent extends React.Component {
   	render() {
@@ -16,111 +22,213 @@ class DashboardContent extends React.Component {
 		const Statusboxes = () => (
 			<Row>
 				<Col xs={12} sm={4} md={2}>
-					<div
-		              className={classnames('box', {
+					<div className={classnames('box', {
 						'bg-color-medlight': ['11', '12', '13', '14', '15', '16'].indexOf(colorOption) >= 0,
-  						'bg-color-meddark': ['21', '22', '23', '24', '25', '26'].indexOf(colorOption) >= 0
-		                })}>
-						<div className="box-top">
-							<span>Media</span>
-							<i className="material-icons">more_vert</i>
-						</div>
-						<div className="box-info">
-							<i className="material-icons">perm_media</i>
-						</div>
-						<div className="box-bottom">
-							<span>20</span>
-						</div>
+						'bg-color-meddark': ['21', '22', '23', '24', '25', '26'].indexOf(colorOption) >= 0
+	                	})}>
+						<Row between="xs" className="box-top">
+							<span className="box-title">Media</span>
+							<IconMenu
+	            				iconButtonElement={<IconButton style={IconButtonStyle}><i className="material-icons">more_vert</i></IconButton>}
+			            		onChange={this.handleChange}
+			            		anchorOrigin={{horizontal: 'right', vertical: 'bottom'}}
+			            		targetOrigin={{horizontal: 'right', vertical: 'top'}}
+			            		menuStyle={{minWidth: '150px'}}>
+			            		<MenuItem
+			              			primaryText="Details"
+			              			style={{fontSize: '14px', lineHeight: '48px'}}
+			                        />
+	            				<MenuItem
+									primaryText="Refresh"
+									style={{fontSize: '14px', lineHeight: '48px'}}
+									/>
+	          				</IconMenu>
+						</Row>
+						<Col xs={12} className="box-info">
+							<Row center="xs">
+								<i className="material-icons status-icon">perm_media</i>
+							</Row>
+						</Col>
+						<Col xs={12} className="box-bottom">
+							<Row center="xs">
+								<span className="status-count">20</span>
+							</Row>
+						</Col>
 					</div>
 				</Col>
 				<Col xs={12} sm={4} md={2}>
-					<div
-		              className={classnames('box', {
+					<div className={classnames('box', {
 						'bg-color-medlight': ['11', '12', '13', '14', '15', '16'].indexOf(colorOption) >= 0,
-  						'bg-color-meddark': ['21', '22', '23', '24', '25', '26'].indexOf(colorOption) >= 0
-		                })}>
-						<div className="box-top">
-							<span>42<span className="size-h5">%</span>
-							</span>
-						</div>
-						<div className="box-info">
-							<span>New Users</span>
-						</div>
-						<div className="box-bottom">
-							<i className="material-icons color-info">supervisor_account</i>
-						</div>
+						'bg-color-meddark': ['21', '22', '23', '24', '25', '26'].indexOf(colorOption) >= 0
+	                	})}>
+						<Row between="xs" className="box-top">
+							<span className="box-title">Players</span>
+							<IconMenu
+	            				iconButtonElement={<IconButton style={IconButtonStyle}><i className="material-icons">more_vert</i></IconButton>}
+			            		onChange={this.handleChange}
+			            		anchorOrigin={{horizontal: 'right', vertical: 'bottom'}}
+			            		targetOrigin={{horizontal: 'right', vertical: 'top'}}
+			            		menuStyle={{minWidth: '150px'}}>
+			            		<MenuItem
+			              			primaryText="Details"
+			              			style={{fontSize: '14px', lineHeight: '48px'}}
+			                        />
+	            				<MenuItem
+									primaryText="Refresh"
+									style={{fontSize: '14px', lineHeight: '48px'}}
+									/>
+	          				</IconMenu>
+						</Row>
+						<Col xs={12} className="box-info">
+							<Row center="xs">
+								<i className="material-icons status-icon">video_library</i>
+							</Row>
+						</Col>
+						<Col xs={12} className="box-bottom">
+							<Row center="xs">
+								<span className="status-count">1</span>
+							</Row>
+						</Col>
 					</div>
 				</Col>
 				<Col xs={12} sm={4} md={2}>
-					<div
-		              className={classnames('box', {
+					<div className={classnames('box', {
 						'bg-color-medlight': ['11', '12', '13', '14', '15', '16'].indexOf(colorOption) >= 0,
-  						'bg-color-meddark': ['21', '22', '23', '24', '25', '26'].indexOf(colorOption) >= 0
-		                })}>
-						<div className="box-top">
-							<span>37<span className="size-h5">k</span>
-							</span>
-						</div>
-						<div className="box-info">
-							<span>Profit</span>
-						</div>
-						<div className="box-bottom">
-							<i className="material-icons color-warning">attach_money</i>
-						</div>
+						'bg-color-meddark': ['21', '22', '23', '24', '25', '26'].indexOf(colorOption) >= 0
+	                	})}>
+						<Row between="xs" className="box-top">
+							<span className="box-title">Playlists</span>
+							<IconMenu
+	            				iconButtonElement={<IconButton style={IconButtonStyle}><i className="material-icons">more_vert</i></IconButton>}
+			            		onChange={this.handleChange}
+			            		anchorOrigin={{horizontal: 'right', vertical: 'bottom'}}
+			            		targetOrigin={{horizontal: 'right', vertical: 'top'}}
+			            		menuStyle={{minWidth: '150px'}}>
+			            		<MenuItem
+			              			primaryText="Details"
+			              			style={{fontSize: '14px', lineHeight: '48px'}}
+			                        />
+	            				<MenuItem
+									primaryText="Refresh"
+									style={{fontSize: '14px', lineHeight: '48px'}}
+									/>
+	          				</IconMenu>
+						</Row>
+						<Col xs={12} className="box-info">
+							<Row center="xs">
+								<i className="material-icons status-icon">featured_play_list</i>
+							</Row>
+						</Col>
+						<Col xs={12} className="box-bottom">
+							<Row center="xs">
+								<span className="status-count">10</span>
+							</Row>
+						</Col>
 					</div>
 				</Col>
 				<Col xs={12} sm={4} md={2}>
-					<div
-		              className={classnames('box', {
+					<div className={classnames('box', {
 						'bg-color-medlight': ['11', '12', '13', '14', '15', '16'].indexOf(colorOption) >= 0,
-  						'bg-color-meddark': ['21', '22', '23', '24', '25', '26'].indexOf(colorOption) >= 0
-		                })}>
-						<div className="box-top">
-							<span>25<span className="size-h5">k</span>
-							</span>
-						</div>
-						<div className="box-info">
-							<span>Sales</span>
-						</div>
-						<div className="box-bottom">
-							<i className="material-icons color-danger">shopping_cart</i>
-						</div>
+						'bg-color-meddark': ['21', '22', '23', '24', '25', '26'].indexOf(colorOption) >= 0
+	                	})}>
+						<Row between="xs" className="box-top">
+							<span className="box-title">Channels</span>
+							<IconMenu
+	            				iconButtonElement={<IconButton style={IconButtonStyle}><i className="material-icons">more_vert</i></IconButton>}
+			            		onChange={this.handleChange}
+			            		anchorOrigin={{horizontal: 'right', vertical: 'bottom'}}
+			            		targetOrigin={{horizontal: 'right', vertical: 'top'}}
+			            		menuStyle={{minWidth: '150px'}}>
+			            		<MenuItem
+			              			primaryText="Details"
+			              			style={{fontSize: '14px', lineHeight: '48px'}}
+			                        />
+	            				<MenuItem
+									primaryText="Refresh"
+									style={{fontSize: '14px', lineHeight: '48px'}}
+									/>
+	          				</IconMenu>
+						</Row>
+						<Col xs={12} className="box-info">
+							<Row center="xs">
+								<i className="material-icons status-icon">developer_board</i>
+							</Row>
+						</Col>
+						<Col xs={12} className="box-bottom">
+							<Row center="xs">
+								<span className="status-count">4</span>
+							</Row>
+						</Col>
 					</div>
 				</Col>
 				<Col xs={12} sm={4} md={2}>
-					<div
-		              className={classnames('box', {
+					<div className={classnames('box', {
 						'bg-color-medlight': ['11', '12', '13', '14', '15', '16'].indexOf(colorOption) >= 0,
-  						'bg-color-meddark': ['21', '22', '23', '24', '25', '26'].indexOf(colorOption) >= 0
-		                })}>
-						<div className="box-top">
-							<span>37<span className="size-h5">k</span>
-							</span>
-						</div>
-						<div className="box-info">
-							<span>Profit</span>
-						</div>
-						<div className="box-bottom">
-							<i className="material-icons color-warning">attach_money</i>
-						</div>
+						'bg-color-meddark': ['21', '22', '23', '24', '25', '26'].indexOf(colorOption) >= 0
+	                	})}>
+						<Row between="xs" className="box-top">
+							<span className="box-title">Networks</span>
+							<IconMenu
+	            				iconButtonElement={<IconButton style={IconButtonStyle}><i className="material-icons">more_vert</i></IconButton>}
+			            		onChange={this.handleChange}
+			            		anchorOrigin={{horizontal: 'right', vertical: 'bottom'}}
+			            		targetOrigin={{horizontal: 'right', vertical: 'top'}}
+			            		menuStyle={{minWidth: '150px'}}>
+			            		<MenuItem
+			              			primaryText="Details"
+			              			style={{fontSize: '14px', lineHeight: '48px'}}
+			                        />
+	            				<MenuItem
+									primaryText="Refresh"
+									style={{fontSize: '14px', lineHeight: '48px'}}
+									/>
+	          				</IconMenu>
+						</Row>
+						<Col xs={12} className="box-info">
+							<Row center="xs">
+								<i className="material-icons status-icon">settings_input_antenna</i>
+							</Row>
+						</Col>
+						<Col xs={12} className="box-bottom">
+							<Row center="xs">
+								<span className="status-count">56</span>
+							</Row>
+						</Col>
 					</div>
 				</Col>
 				<Col xs={12} sm={4} md={2}>
-					<div
-		              className={classnames('box', {
+					<div className={classnames('box', {
 						'bg-color-medlight': ['11', '12', '13', '14', '15', '16'].indexOf(colorOption) >= 0,
-  						'bg-color-meddark': ['21', '22', '23', '24', '25', '26'].indexOf(colorOption) >= 0
-		                })}>
-						<div className="box-top">
-							<span>25<span className="size-h5">k</span>
-							</span>
-						</div>
-						<div className="box-info">
-							<span>Sales</span>
-						</div>
-						<div className="box-bottom">
-							<i className="material-icons color-danger">shopping_cart</i>
-						</div>
+						'bg-color-meddark': ['21', '22', '23', '24', '25', '26'].indexOf(colorOption) >= 0
+	                	})}>
+						<Row between="xs" className="box-top">
+							<span className="box-title">Users</span>
+							<IconMenu
+	            				iconButtonElement={<IconButton style={IconButtonStyle}><i className="material-icons">more_vert</i></IconButton>}
+			            		onChange={this.handleChange}
+			            		anchorOrigin={{horizontal: 'right', vertical: 'bottom'}}
+			            		targetOrigin={{horizontal: 'right', vertical: 'top'}}
+			            		menuStyle={{minWidth: '150px'}}>
+			            		<MenuItem
+			              			primaryText="Details"
+			              			style={{fontSize: '14px', lineHeight: '48px'}}
+			                        />
+	            				<MenuItem
+									primaryText="Refresh"
+									style={{fontSize: '14px', lineHeight: '48px'}}
+									/>
+	          				</IconMenu>
+						</Row>
+						<Col xs={12} className="box-info">
+							<Row center="xs">
+								<i className="material-icons status-icon">people</i>
+							</Row>
+						</Col>
+						<Col xs={12} className="box-bottom">
+							<Row center="xs">
+								<span className="status-count">5</span>
+							</Row>
+						</Col>
 					</div>
 				</Col>
 			</Row>
