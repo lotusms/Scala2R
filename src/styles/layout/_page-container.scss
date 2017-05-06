@@ -5,7 +5,7 @@
   .app-content-wrapper{
     min-height: 100%;
     position: relative;
-    background-color: $l_white; // important! otherwise trasparent background-color won't cover the sidebar, when scroll down
+    //background-color: $l_white; // important! otherwise trasparent background-color won't cover the sidebar, when scroll down
     .app-content {
       z-index: 10;
       padding-bottom: $sidebar_footer_height;
@@ -14,7 +14,7 @@
       &.full-width{
         width: 100%;
       }
-    } 
+    }
   }
 }
 
@@ -67,7 +67,7 @@
     .app-content-wrapper {
       .app-content {
         padding-left: $l_sidebar_width;
-      } 
+      }
       .app-footer{
         left: $l_sidebar_width;
       }

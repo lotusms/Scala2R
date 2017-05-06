@@ -26,8 +26,8 @@ class Header extends React.Component {
       <section className="app-header">
         <div
           className={classnames('app-header-inner', {
-						'bg-color-light': ['31', '32', '33', '34', '35', '36'].indexOf(colorOption) >= 0,
-						'bg-color-dark': ['21', '22', '23', '24', '25', '26'].indexOf(colorOption) >= 0
+						'bg-color-medlight': ['11', '12', '13', '14', '15', '16'].indexOf(colorOption) >= 0,
+						'bg-color-meddark': ['21', '22', '23', '24', '25', '26'].indexOf(colorOption) >= 0
             })}
                 >
           <div className="hidden-lg-up float-left">

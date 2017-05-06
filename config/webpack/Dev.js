@@ -38,7 +38,8 @@ class WebpackDevConfig extends WebpackBaseConfig {
             loader: 'css-loader',
             options: {
               sourceMap: true
-            }
+            },
+  					include: /flexboxgrid/
           },
           { loader: 'sass-loader',
             options: {

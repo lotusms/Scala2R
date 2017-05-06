@@ -22,7 +22,7 @@ export default {
     accent1Color: deepOrange400,
     accent2Color: green400,
     accent3Color: green200,
-    textColor: 'rgba(255,255,255,.7)',
+    textColor: '#d0d2d7',
     secondaryTextColor: fade(fullWhite, 0.54),
     alternateTextColor: '#333C44',
     canvasColor: '#333C44',

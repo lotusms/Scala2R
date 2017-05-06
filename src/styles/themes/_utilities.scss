@@ -27,14 +27,15 @@
 .bg-color-white { @include bg-style(#fff, $body-color); }
 
 .bg-color-gray { @include bg-style($gray-light, #fff); }
-.bg-color-dark { @include bg-style($dark, #fff); }
-.bg-color-meddark { @include bg-style(lighten($dark, 5%), #fff); }
+.bg-color-dark { @include bg-style($color0, $color1); }
+.bg-color-meddark { @include bg-style($color4, $color1); }
 .bg-color-primary { @include bg-style($brand-primary, #fff); }
 .bg-color-success { @include bg-style($brand-success, #fff); }
 .bg-color-info { @include bg-style($brand-info, #fff); }
 .bg-color-info-alt { @include bg-style($brand-info-alt, #fff); }
 .bg-color-warning { @include bg-style($brand-warning, $body-color); }
-.bg-color-danger { @include bg-style($brand-danger, #fff); }
+.bg-color-danger { @include bg-style($brand-default, $color1); }
+//.bg-color-default { @include bg-style($color5, #fff); }
 
 
 // for mdl-data-table

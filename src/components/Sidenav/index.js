@@ -41,13 +41,13 @@ class Sidebar extends React.Component {
         return (
             <nav
                 className={classnames('app-sidebar', {
-                    'bg-color-light': ['31', '32', '33', '34', '35', '36'].indexOf(colorOption) >= 0,
-                    'bg-color-dark': ['21', '22', '23', '24', '25', '26'].indexOf(colorOption) >= 0
+                    'bg-color-medlight': ['11', '12', '13', '14', '15', '16'].indexOf(colorOption) >= 0,
+                    'bg-color-meddark': ['21', '22', '23', '24', '25', '26'].indexOf(colorOption) >= 0
                 })}>
                 <section
                     className={classnames('sidebar-header', {
-						'bg-color-light': ['31', '32', '33', '34', '35', '36'].indexOf(colorOption) >= 0,
-						'bg-color-dark': ['21', '22', '23', '24', '25', '26'].indexOf(colorOption) >= 0
+						'bg-color-medlight': ['11', '12', '13', '14', '15', '16'].indexOf(colorOption) >= 0,
+						'bg-color-meddark': ['21', '22', '23', '24', '25', '26'].indexOf(colorOption) >= 0
                     })}>
                     <img className="logo full-size" src="../../assets/ScalaCM.svg" alt=""/>
                     <img className="logo min-size" src="../../assets/ScalaCMsm.svg" alt=""/>

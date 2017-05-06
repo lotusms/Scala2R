@@ -2,18 +2,25 @@
 
 html {
 	height: 100%;
-	background-color: $l_body_bg; // important! otherwise in "layout-boxed" mode, content > height 100% will
 }
 
 body {
 	height: 100%;
 	margin: 0;
 	padding: 0;
-	// background-color: $l_body_bg;
+	background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url(../assets/images/backgrounds/scala.jpg) fixed no-repeat;
 }
 
 .full-height{
 	height: 100% !important;
+}
+
+.bg-color-medlight{
+	~.app-page-container{
+		.full-height{
+			background: rgba(255, 255, 255, 0.64);
+		}
+	}
 }
 
 .article-title{

@@ -21,8 +21,8 @@ class PageContent extends React.Component {
         <div className="col-xl-6">
           <div
             className={classnames('box', {
-              'bg-color-medlight': ['31', '32', '33', '34', '35', '36'].indexOf(colorOption) >= 0,
-              'bg-color-meddark': ['21', '22', '23', '24', '25', '26'].indexOf(colorOption) >= 0
+				'bg-color-medlight': ['11', '12', '13', '14', '15', '16'].indexOf(colorOption) >= 0,
+				'bg-color-meddark': ['21', '22', '23', '24', '25', '26'].indexOf(colorOption) >= 0
               })}>
             <div className="box-header">FAB</div>
             <div className="box-body text-center">
@@ -64,8 +64,8 @@ class PageContent extends React.Component {
 
 			<div
               className={classnames('box', {
-                'bg-color-medlight': ['31', '32', '33', '34', '35', '36'].indexOf(colorOption) >= 0,
-                'bg-color-meddark': ['21', '22', '23', '24', '25', '26'].indexOf(colorOption) >= 0
+				    'bg-color-medlight': ['11', '12', '13', '14', '15', '16'].indexOf(colorOption) >= 0,
+  					'bg-color-meddark': ['21', '22', '23', '24', '25', '26'].indexOf(colorOption) >= 0
                 })}>
             <div className="box-header">Icon Button</div>
             <div className="box-body text-center">
@@ -91,8 +91,8 @@ class PageContent extends React.Component {
 
 			<div
               className={classnames('box', {
-                'bg-color-medlight': ['31', '32', '33', '34', '35', '36'].indexOf(colorOption) >= 0,
-                'bg-color-meddark': ['21', '22', '23', '24', '25', '26'].indexOf(colorOption) >= 0
+					'bg-color-medlight': ['11', '12', '13', '14', '15', '16'].indexOf(colorOption) >= 0,
+  					'bg-color-meddark': ['21', '22', '23', '24', '25', '26'].indexOf(colorOption) >= 0
                 })}>
             <div className="box-header">Raised</div>
             <div className="box-body text-center">
@@ -108,8 +108,8 @@ class PageContent extends React.Component {
 
 			<div
               className={classnames('box', {
-                'bg-color-medlight': ['31', '32', '33', '34', '35', '36'].indexOf(colorOption) >= 0,
-                'bg-color-meddark': ['21', '22', '23', '24', '25', '26'].indexOf(colorOption) >= 0
+			  		'bg-color-medlight': ['11', '12', '13', '14', '15', '16'].indexOf(colorOption) >= 0,
+					'bg-color-meddark': ['21', '22', '23', '24', '25', '26'].indexOf(colorOption) >= 0
                 })}>
             <div className="box-header">Flat</div>
             <div className="box-body text-center">
@@ -129,8 +129,8 @@ class PageContent extends React.Component {
         <div className="col-xl-6">
 			<div
 			  className={classnames('box', {
-				'bg-color-medlight': ['31', '32', '33', '34', '35', '36'].indexOf(colorOption) >= 0,
-				'bg-color-meddark': ['21', '22', '23', '24', '25', '26'].indexOf(colorOption) >= 0
+				'bg-color-medlight': ['11', '12', '13', '14', '15', '16'].indexOf(colorOption) >= 0,
+  				'bg-color-meddark': ['21', '22', '23', '24', '25', '26'].indexOf(colorOption) >= 0
 				})}>
             <div className="box-header">Raised</div>
             <div className="box-body text-center">
@@ -144,7 +144,7 @@ class PageContent extends React.Component {
         <div className="col-xl-6">
 			<div
 			  className={classnames('box', {
-				'bg-color-medlight': ['31', '32', '33', '34', '35', '36'].indexOf(colorOption) >= 0,
+				'bg-color-medlight': ['11', '12', '13', '14', '15', '16'].indexOf(colorOption) >= 0,
 				'bg-color-meddark': ['21', '22', '23', '24', '25', '26'].indexOf(colorOption) >= 0
 				})}>
             <div className="box-header">Flat</div>
@@ -164,13 +164,13 @@ class PageContent extends React.Component {
         	<article className="article">
           		<h2
             		className={classnames('article-title', {
-						'bg-color-light': ['11', '21'].indexOf(colorOption) >= 0,
-						'bg-color-dark': ['21', '31'].indexOf(colorOption) >= 0,
-						'bg-color-primary': ['22', '32'].indexOf(colorOption) >= 0,
-						'bg-color-success': ['23', '33'].indexOf(colorOption) >= 0,
-						'bg-color-info': ['24', '34'].indexOf(colorOption) >= 0,
-						'bg-color-warning': ['25', '35'].indexOf(colorOption) >= 0,
-						'bg-color-danger': ['26', '36'].indexOf(colorOption) >= 0
+						'bg-color-medlight': ['11'].indexOf(colorOption) >= 0,
+		                'bg-color-meddark': ['21'].indexOf(colorOption) >= 0,
+		                'bg-color-primary': ['12', '22'].indexOf(colorOption) >= 0,
+		                'bg-color-success': ['13', '23'].indexOf(colorOption) >= 0,
+		                'bg-color-info': ['14', '24'].indexOf(colorOption) >= 0,
+		                'bg-color-warning': ['15', '25'].indexOf(colorOption) >= 0,
+		                'bg-color-danger': ['16', '26'].indexOf(colorOption) >= 0
                 		})}>
                 		Material Buttons</h2>
 
