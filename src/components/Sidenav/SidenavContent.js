@@ -21,13 +21,16 @@ class SidebarContent extends React.Component {
     }
 
     componentDidMount() {
-        const nav = this.nav;
-        const $nav = $(nav);
 
         this.timerID = setInterval(
             () => this.tick(),
             1000
         );
+
+
+        const nav = this.nav;
+        const $nav = $(nav);
+
         // scroll
         $nav.slimscroll({height: '100%'});
 
