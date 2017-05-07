@@ -13,7 +13,7 @@ import spacing from 'material-ui/styles/spacing';
 
 export default {
   spacing,
-  fontFamily: 'Roboto, sans-serif',
+  fontFamily: 'omnes-pro',
   borderRadius: 2,
   palette: {
     primary1Color: deepOrange900,

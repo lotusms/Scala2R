@@ -1,6 +1,7 @@
 import React from 'react';
 import {Link, hashHistory} from 'react-router';
 import FlatButton from 'material-ui/FlatButton';
+import moment from 'moment';
 import 'jquery-slimscroll/jquery.slimscroll.min';
 import { Row, Col, getRowProps, getColumnProps } from 'react-flexbox-grid';
 
@@ -9,7 +10,7 @@ class SidebarContent extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			date: new Date()
+			date: moment()
 		};
 	}
 
@@ -18,19 +19,19 @@ class SidebarContent extends React.Component {
 	}
 
 	tick() {
-		this.setState({date: new Date()});
+		this.setState({date: moment()});
 	}
 
 	getHours() {
-		return this.state.date.getHours();
-	}
-	getMinutes() {
-		return this.state.date.getMinutes();
-	}
+    	return this.state.date.format('HH')
+  	}
+  	getMinutes() {
+	    return this.state.date.format('mm')
+  	}
 
-	getSeconds() {
-		return this.state.date.getSeconds();
-	}
+  	getSeconds() {
+	    return this.state.date.format('ss')
+  	}
 
 
 	componentDidMount() {
@@ -127,7 +128,7 @@ class SidebarContent extends React.Component {
 				    	</Row>
 					</Row>
 					<Row className="date" center="xs">
-						<p className="today-is">{this.state.date.toDateString()}</p>
+						<p className="today-is">{this.state.date.format('MMM DD')}, {this.state.date.format('YYYY')}</p>
 					</Row>
 				</li>
 				<li className="nav-header">

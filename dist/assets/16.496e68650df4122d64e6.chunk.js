@@ -1,0 +1,2 @@
+webpackJsonp([16],{918:function(n,t,o){"use strict";n.exports={path:"horizontal-products",getComponent:function(n,t){o.e(6).then(function(n){t(null,o(917))}.bind(null,o)).catch(o.oe)}}},920:function(n,t,o){"use strict";n.exports={path:"invoice",getComponent:function(n,t){o.e(1).then(function(n){t(null,o(919))}.bind(null,o)).catch(o.oe)}}},922:function(n,t,o){"use strict";n.exports={path:"products",getComponent:function(n,t){o.e(6).then(function(n){t(null,o(921))}.bind(null,o)).catch(o.oe)}}}});
+//# sourceMappingURL=16.496e68650df4122d64e6.chunk.js.map
