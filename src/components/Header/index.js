@@ -41,7 +41,7 @@ class Header extends React.Component {
 						<NavLeftList/>
 					</Row>
 
-					<Row end="xs" className="header-right">
+					<Row className="header-right">
 						<NavRightList/>
 					</Row>
 				</Row>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import {connect} from 'react-redux';
 import classnames from 'classnames';
 import APPCONFIG from 'constants/Config';
 import Header from 'components/Header';
@@ -8,43 +8,36 @@ import Footer from 'components/Footer';
 import Customizer from 'components/Customizer';
 
 class MainApp extends React.Component {
-  render() {
-    const { children, location, colorOption } = this.props;
 
-    return (
-      <div className="main-app-container">
-        <Sidenav />
+	render() {
+		const {children, location, colorOption} = this.props;
 
-        <section id="page-container" className="app-page-container">
-          <Header />
+		return (
+			<div className="main-app-container">
+				<Sidenav/>
 
-          <div className="app-content-wrapper">
-              <div
-                className={classnames('app-content', {
-                    'bg-color-light': ['31', '32', '33', '34', '35', '36'].indexOf(colorOption) >= 0,
-                    'bg-color-dark': ['21', '22', '23', '24', '25', '26'].indexOf(colorOption) >= 0
-                  })}
-                      >
-              <div className="full-height">
-                {children}
-              </div>
-            </div>
+				<section id="page-container" className="app-page-container">
+					<Header/>
 
-            <Footer />
-          </div>
-        </section>
+					<div className="app-content-wrapper">
+						<div className={classnames('app-content', {
+							'bg-color-light': ['11', '12', '13', '14', '15', '16' ].indexOf(colorOption) >= 0,
+							'bg-color-dark': ['21', '22', '23', '24', '25', '26' ].indexOf(colorOption) >= 0
+						})}>
+							<div className="full-height">
+								{children}
+							</div>
+						</div>
 
-        <Customizer />
-      </div>
-    );
-  }
+						<Footer/>
+					</div>
+				</section>
+				<Customizer/>
+			</div>
+		);
+	}
 }
 
+const mapStateToProps = state => ({colorOption: state.settings.colorOption});
 
-const mapStateToProps = state => ({
-  colorOption: state.settings.colorOption
-});
-
-module.exports = connect(
-  mapStateToProps
-)(MainApp);
+module.exports = connect(mapStateToProps)(MainApp);

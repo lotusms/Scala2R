@@ -8,23 +8,28 @@ import {Link, hashHistory} from 'react-router';
 import APPCONFIG from 'constants/Config';
 import ToggleDisplay from 'react-toggle-display';
 import HeaderRight from './HeaderRight';
-import QuickPanel from '../Quickpanel';
+import QuickPanel from 'components/QuickPanel';
+import Drawer from 'material-ui/Drawer';
 import { Row, Col, getRowProps, getColumnProps } from 'react-flexbox-grid';
 
 
 class NavRightList extends React.Component {
 	constructor(props) {
-	    super(props);
-		this.state = {
-			show: false
-		}
-	}
-
-	handleClick() {
-	    this.setState({
-	      	show: !this.state.show
-	    });
+    	super(props);
+    	this.state = {open: false};
   	}
+
+	handleToggle = () => this.setState(
+		{
+			open: !this.state.open
+		}
+	);
+
+  	handleClose = () => this.setState(
+		{
+			open: false
+		}
+	);
 
 	handleChange = (event, value) => {
 		hashHistory.push(value);
@@ -33,17 +38,23 @@ class NavRightList extends React.Component {
 	render() {
 		const {colorOption} = this.props;
 		return (
-			<Row end="xs">
+			<Row>
 				<HeaderRight />
 
 				<span className="collapsedpanel-toggler">
-					<a href="javascript:;" onClick={ () => this.handleClick() }>
+					<a href="javascript:;" onTouchTap={this.handleToggle}>
 						<i className="material-icons">menu</i>
 					</a>
 				</span>
-				<ToggleDisplay show={this.state.show}>
+				<Drawer
+					width={300}
+					docked={false}
+					openSecondary={true}
+					open={this.state.open}
+					onRequestChange={(open) => this.setState({open})}
+				>
 					<QuickPanel />
-				</ToggleDisplay>
+		        </Drawer>
 			</Row>
 		);
 	}
