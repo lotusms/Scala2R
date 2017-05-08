@@ -4,7 +4,6 @@ import classnames from 'classnames';
 import APPCONFIG from 'constants/Config';
 import Header from 'components/Header';
 import Sidenav from 'components/Sidenav';
-import QuickPanel from 'components/QuickPanel';
 import Footer from 'components/Footer';
 import Customizer from 'components/Customizer';
 
