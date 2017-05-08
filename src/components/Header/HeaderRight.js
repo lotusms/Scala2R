@@ -75,7 +75,7 @@ class HeaderRight extends React.Component {
     	const { colorOption } = this.props;
 
 		return (
-			<Row xs={12}>
+			<Row>
 				<ToggleDisplay show={!this.state.show}>
 					<ul className="list-unstyled">
 						<li>
