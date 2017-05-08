@@ -141,6 +141,12 @@ class SidebarContent extends React.Component {
 					</FlatButton>
 				</li>
 				<li>
+					<FlatButton href="#/app/playlist">
+						<i className="nav-icon material-icons">featured_play_list</i>
+						<span className="nav-text">Playlist</span>
+					</FlatButton>
+				</li>				
+				<li>
 					<FlatButton href="#/app/ui">
 						<i className="nav-icon material-icons">folder_open</i>
 						<span className="nav-text">UI Kit</span>

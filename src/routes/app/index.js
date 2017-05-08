@@ -5,6 +5,7 @@ module.exports = {
       cb(null, [
         require('./routes/charts'),
         require('./routes/dashboard'),
+        require('./routes/playlist'),
         require('./routes/ecommerce'),
         require('./routes/forms'),
         require('./routes/pageLayouts'),
