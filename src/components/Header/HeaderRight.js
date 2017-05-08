@@ -158,7 +158,7 @@ class HeaderRight extends React.Component {
 								top: '0',
 							    right: '114px',
 							    bottom: '0',
-							    left: '245px'
+							    left: '280px'
 						}}
 						/>
 				</ToggleDisplay>

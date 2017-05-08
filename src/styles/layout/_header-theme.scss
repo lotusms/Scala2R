@@ -141,6 +141,7 @@
 }
 .bg-color-meddark{
 	.autocomplete{
+		z-index:1030;
 		> div{
 			color: $color1 !important;
 			position:relative;
