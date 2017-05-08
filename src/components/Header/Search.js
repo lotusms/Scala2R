@@ -1,6 +1,7 @@
 import React from 'react';
 import AutoComplete from 'material-ui/AutoComplete';
 import JSONP from 'jsonp';
+import ToggleDisplay from 'react-toggle-display';
 import { Row, Col, getRowProps, getColumnProps } from 'react-flexbox-grid';
 
 
@@ -12,7 +13,8 @@ class HeaderSearch extends React.Component {
 		this.onUpdateInput = this.onUpdateInput.bind(this);
 		this.state = {
 	      	dataSource : [],
-	      	inputValue : ''
+	      	inputValue : '',
+			show: false
 		}
 	}
 
@@ -49,14 +51,23 @@ class HeaderSearch extends React.Component {
 	    }
   	}
 
+	handleClick() {
+	    this.setState({
+	      	show: !this.state.show
+	    });
+  	}
+
 	render() {
 		return (
 			<span>
-				<AutoComplete
-					dataSource    = {this.state.dataSource}
-					onUpdateInput = {this.onUpdateInput} />
+				<ToggleDisplay show={this.state.show}>
+					<AutoComplete
+						dataSource    = {this.state.dataSource}
+						onUpdateInput = {this.onUpdateInput}
+						/>
+				</ToggleDisplay>		
 				<span className="open-search">
-					<a href="javascript:;" >
+					<a href="javascript:;" onClick={ () => this.handleClick() }>
 						<i className="material-icons">search</i>
 					</a>
 				</span>

@@ -7,7 +7,9 @@ import IconButton from 'material-ui/IconButton/IconButton';
 import {Link, hashHistory} from 'react-router';
 import APPCONFIG from 'constants/Config';
 import {toggleCollapsedQuickpanel} from '../../actions';
+import ToggleDisplay from 'react-toggle-display';
 import HeaderSearch from './Search';
+import QuickPanel from '../Quickpanel';
 import { Row, Col, getRowProps, getColumnProps } from 'react-flexbox-grid';
 
 const ImgIconButtonStyle = {
@@ -20,6 +22,18 @@ const listItemStyle = {
 };
 
 class NavRightList extends React.Component {
+	constructor(props) {
+	    super(props);
+		this.state = {
+			show: false
+		}
+	}
+
+	handleClick() {
+	    this.setState({
+	      	show: !this.state.show
+	    });
+  	}
 
 	handleChange = (event, value) => {
 		hashHistory.push(value);
@@ -107,10 +121,13 @@ class NavRightList extends React.Component {
 				<HeaderSearch />
 
 				<span className="collapsedpanel-toggler">
-					<a href="javascript:;" onClick={this.onToggleCollapsedQuickpanel}>
+					<a href="javascript:;" onClick={ () => this.handleClick() }>
 						<i className="material-icons">menu</i>
 					</a>
 				</span>
+				<ToggleDisplay show={this.state.show}>
+					<QuickPanel />
+				</ToggleDisplay>
 			</Row>
 		);
 	}

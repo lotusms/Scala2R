@@ -35,7 +35,6 @@ class MainApp extends React.Component {
           </div>
         </section>
 
-        <QuickPanel />
         <Customizer />
       </div>
     );
