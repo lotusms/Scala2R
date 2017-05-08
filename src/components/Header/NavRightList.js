@@ -7,8 +7,7 @@ import IconButton from 'material-ui/IconButton/IconButton';
 import {Link, hashHistory} from 'react-router';
 import APPCONFIG from 'constants/Config';
 import {toggleCollapsedQuickpanel} from '../../actions';
-import AutoComplete from 'material-ui/AutoComplete';
-import JSONP from 'jsonp';
+import HeaderSearch from './Search';
 import { Row, Col, getRowProps, getColumnProps } from 'react-flexbox-grid';
 
 const ImgIconButtonStyle = {
@@ -20,52 +19,7 @@ const listItemStyle = {
 	paddingLeft: '50px' // 36 + 16, algin with sub list
 };
 
-const googleAutoSuggestURL = `
-  //suggestqueries.google.com/complete/search?client=youtube&ds=yt&q=`;
-
 class NavRightList extends React.Component {
-
-	constructor(props) {
-	    super(props);
-		this.onUpdateInput = this.onUpdateInput.bind(this);
-		this.state = {
-	      	dataSource : [],
-	      	inputValue : ''
-		}
-	}
-
-	onUpdateInput(inputValue) {
-		const self = this;
-	    this.setState({
-      		inputValue: inputValue
-	    }, function() {
-      		self.performSearch();
-	    });
-	}
-
-	performSearch() {
-	    const
-      		self = this,
-      		url  = googleAutoSuggestURL + this.state.inputValue;
-
-	    if(this.state.inputValue !== '') {
-      		JSONP(url, function(error, data) {
-				let searchResults, retrievedSearchTerms;
-
-        		if(error) return error;
-
-        		searchResults = data[1];
-
-        		retrievedSearchTerms = searchResults.map(function(result) {
-          			return result[0];
-        		});
-
-        		self.setState({
-          			dataSource: retrievedSearchTerms
-        		});
-      		});
-	    }
-  	}
 
 	handleChange = (event, value) => {
 		hashHistory.push(value);
@@ -80,9 +34,9 @@ class NavRightList extends React.Component {
 	render() {
 		const {panelCollapsed, colorOption} = this.props;
 		return (
-			<span>
+			<Row end="xs">
 				<ul className="list-unstyled">
-					<li style={{ marginRight: '10px' }}>
+					<li>
 						<IconMenu iconButtonElement={
 							<Row middle="xs">
 								< IconButton style = { ImgIconButtonStyle } >
@@ -148,17 +102,16 @@ class NavRightList extends React.Component {
 								}/>
 						</IconMenu>
 					</li>
-					<li className="collapsedpanel-toggler">
-						<a href="javascript:;" onClick={this.onToggleCollapsedQuickpanel}>
-							<i className="material-icons">menu</i>
-						</a>
-					</li>
 				</ul>
 
-				<AutoComplete
-		            dataSource    = {this.state.dataSource}
-		            onUpdateInput = {this.onUpdateInput} />
-			</span>
+				<HeaderSearch />
+
+				<span className="collapsedpanel-toggler">
+					<a href="javascript:;" onClick={this.onToggleCollapsedQuickpanel}>
+						<i className="material-icons">menu</i>
+					</a>
+				</span>
+			</Row>
 		);
 	}
 }
@@ -171,5 +124,3 @@ const mapDispatchToProps = dispatch => ({
 });
 
 module.exports = connect(mapStateToProps, mapDispatchToProps)(NavRightList);
-
-module.exports = NavRightList;

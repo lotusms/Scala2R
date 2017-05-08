@@ -37,11 +37,11 @@ class Header extends React.Component {
 						</a>
 					</Row>
 
-					<Row start="xs" className="top-nav-left hidden-md-down">
+					<Row start="xs" className="hidden-md-down">
 						<NavLeftList/>
 					</Row>
 
-					<Row end="xs" className="top-nav-right">
+					<Row end="xs" className="header-right">
 						<NavRightList/>
 					</Row>
 				</Row>
