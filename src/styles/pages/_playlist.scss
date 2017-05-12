@@ -1,0 +1,25 @@
+.playlist-page {
+    h2 > span {
+        float: right;
+    }
+    #table-filters label {
+        color: white!important;
+    }
+    .article {
+        padding-top:0;
+    }
+    table {
+        background-color: #AA3300!important;
+        thead th {
+            color: white!important;
+        }
+        tbody tr {
+            background-color: #21242d;
+            color: white!important;
+            svg {
+                color: white!important;
+            }
+        }
+    }
+
+}

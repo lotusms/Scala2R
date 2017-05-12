@@ -1,45 +1,158 @@
-import 'jquery-slimscroll/jquery.slimscroll.min';
 import React from 'react';
-import APPCONFIG from 'constants/Config';
-import ColorOptions from './ColorOptions';
+import {connect} from 'react-redux';
+import classnames from 'classnames';
+import {changeColorOption} from '../../actions';
 
-class Customizer extends React.Component {
+class ColorSchemeOptions extends React.Component {
+	constructor(props) {
+		super(props);
+		this.onChange = this.onChange.bind(this);
+	}
 
-  componentDidMount() {
-    const quickviewInner = this.quickview;
-    $(quickviewInner).slimscroll({
-      height: '100%'
-    });
-  }
+	onChange(e) {
+		const {handleChange} = this.props;
+		const newColorOption = e.target.value;
+		handleChange(newColorOption);
+	}
 
-  toggleCustomizer = () => {
-    const $body = $('#body');
-    $body.toggleClass('quickview-open-customizer');
-  }
+	render() {
+		const {colorOption} = this.props;
 
-  closeCustomizer = () => {
-    const $body = $('#body');
-    $body.removeClass('quickview-open-customizer');
-  }
+		return (
+			<section
+				className={classnames('customizer', {
+					'bg-color-medlight': ['11', '12', '13', '14', '15', '16'].indexOf(colorOption) >= 0,
+					'bg-color-meddark': ['21', '22', '23', '24', '25', '26'].indexOf(colorOption) >= 0
+				})}>
+				<h4 className="section-header">Color Options</h4>
+				<div className="divider"/>
+				<div className="row">
+					<div className="col-6">
+						<label className="color-option-check">
+							<input type="radio" name="color" value="12" checked={colorOption === '12'} onChange={this.onChange}/>
+							<span className="color-option-item bg-color-page">
+								<span className="overlay">
+									<span className="material-icons">check</span>
+								</span>
+								<span className="bg-color-primary item-header"/>
+								<span className="bg-color-primary item-header"/>
+								<span className="bg-color-medlight"/>
+							</span>
+						</label>
+						<label className="color-option-check">
+							<input type="radio" name="color" value="13" checked={colorOption === '13'} onChange={this.onChange}/>
+							<span className="color-option-item bg-color-page">
+								<span className="overlay">
+									<span className="material-icons">check</span>
+								</span>
+								<span className="bg-color-success item-header"/>
+								<span className="bg-color-success item-header"/>
+								<span className="bg-color-medlight"/>
+							</span>
+						</label>
+						<label className="color-option-check">
+							<input type="radio" name="color" value="14" checked={colorOption === '14'} onChange={this.onChange}/>
+							<span className="color-option-item bg-color-page">
+								<span className="overlay">
+									<span className="material-icons">check</span>
+								</span>
+								<span className="bg-color-info item-header"/>
+								<span className="bg-color-info item-header"/>
+								<span className="bg-color-medlight"/>
+							</span>
+						</label>
+						<label className="color-option-check">
+							<input type="radio" name="color" value="15" checked={colorOption === '15'} onChange={this.onChange}/>
+							<span className="color-option-item bg-color-page">
+								<span className="overlay">
+									<span className="material-icons">check</span>
+								</span>
+								<span className="bg-color-warning item-header"/>
+								<span className="bg-color-warning item-header"/>
+								<span className="bg-color-medlight"/>
+							</span>
+						</label>
+						<label className="color-option-check">
+							<input type="radio" name="color" value="16" checked={colorOption === '16'} onChange={this.onChange}/>
+							<span className="color-option-item bg-color-page">
+								<span className="overlay">
+									<span className="material-icons">check</span>
+								</span>
+								<span className="bg-color-danger item-header"/>
+								<span className="bg-color-danger item-header"/>
+								<span className="bg-color-medlight"/>
+							</span>
+						</label>
+					</div>
 
-
-  render() {
-    return (
-      <section
-        className="quickview-wrapper customizer hidden-lg-down theme-dark" id="quickview-customizer">
-        <a className="customizer-close" href="javascript:;" onClick={this.closeCustomizer}>
-          <span className="material-icons">close</span>
-        </a>
-        <a className="customizer-toggle" href="javascript:;" onClick={this.toggleCustomizer}>
-          <span className="material-icons">settings</span>
-        </a>
-
-        <div className="quickview-inner" ref={(c) => { this.quickview = c; }}>
-          <ColorOptions />
-        </div>
-      </section>
-    );
-  }
+					<div className="col-6">
+						<label className="color-option-check">
+							<input type="radio" name="color" value="22" checked={colorOption === '22'} onChange={this.onChange}/>
+							<span className="color-option-item bg-color-page bg-color-dark">
+								<span className="overlay">
+									<span className="material-icons">check</span>
+								</span>
+								<span className="bg-color-primary item-header"/>
+								<span className="bg-color-primary item-header"/>
+								<span className="bg-color-dark"/>
+							</span>
+						</label>
+						<label className="color-option-check">
+							<input type="radio" name="color" value="23" checked={colorOption === '23'} onChange={this.onChange}/>
+							<span className="color-option-item bg-color-page bg-color-dark">
+								<span className="overlay">
+									<span className="material-icons">check</span>
+								</span>
+								<span className="bg-color-success item-header"/>
+								<span className="bg-color-success item-header"/>
+								<span className="bg-color-dark"/>
+							</span>
+						</label>
+						<label className="color-option-check">
+							<input type="radio" name="color" value="24" checked={colorOption === '24'} onChange={this.onChange}/>
+							<span className="color-option-item bg-color-page bg-color-dark">
+								<span className="overlay">
+									<span className="material-icons">check</span>
+								</span>
+								<span className="bg-color-info item-header"/>
+								<span className="bg-color-info item-header"/>
+								<span className="bg-color-dark"/>
+							</span>
+						</label>
+						<label className="color-option-check">
+							<input type="radio" name="color" value="25" checked={colorOption === '25'} onChange={this.onChange}/>
+							<span className="color-option-item bg-color-page bg-color-dark">
+								<span className="overlay">
+									<span className="material-icons">check</span>
+								</span>
+								<span className="bg-color-warning item-header"/>
+								<span className="bg-color-warning item-header"/>
+								<span className="bg-color-dark"/>
+							</span>
+						</label>
+						<label className="color-option-check">
+							<input type="radio" name="color" value="26" checked={colorOption === '26'} onChange={this.onChange}/>
+							<span className="color-option-item bg-color-page bg-color-dark">
+								<span className="overlay">
+									<span className="material-icons">check</span>
+								</span>
+								<span className="bg-color-danger item-header"/>
+								<span className="bg-color-danger item-header"/>
+								<span className="bg-color-dark"/>
+							</span>
+						</label>
+					</div>
+				</div>
+			</section>
+		);
+	}
 }
 
-module.exports = Customizer;
+const mapStateToProps = state => ({colorOption: state.settings.colorOption});
+const mapDispatchToProps = dispatch => ({
+	handleChange: (colorOption) => {
+		dispatch(changeColorOption(colorOption));
+	}
+});
+
+module.exports = connect(mapStateToProps, mapDispatchToProps)(ColorSchemeOptions);

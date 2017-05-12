@@ -61,6 +61,43 @@
 						}
 					}
 				}
+				.sidebar-content{
+					.nav{
+						.clock{
+							margin: initial;
+							span{
+								font-size: 28px;
+								&.hours, &.min{
+									font-size: 42px;
+								}
+								&.sec{
+									display:block;
+									font-size: 15px;
+								}
+							}
+						}
+						.date{
+							display:block;
+						}
+					}
+				}
+			}
+
+			.sidebar-content{
+				.nav{
+					.clock{
+						margin: 10px auto 8px;
+						span{
+							font-size: 24px;
+							&.sec{
+								display:none;
+							}
+						}
+					}
+					.date{
+						display:none;
+					}
+				}
 			}
 		}
 	}
@@ -108,6 +145,8 @@
 	.nav-text {
 		display: inline;
 	}
+
+
 
 	.icon-has-ul {
 		display: inherit;

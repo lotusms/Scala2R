@@ -1,8 +1,10 @@
 import React from 'react';
-import IconMenu from 'material-ui/IconMenu';
-import MenuItem from 'material-ui/MenuItem';
-import IconButton from 'material-ui/IconButton/IconButton';
+import { connect } from 'react-redux';
 import {hashHistory} from 'react-router';
+import classnames from 'classnames';
+
+import Button from 'material-ui/Button';
+import Menu, { MenuItem } from 'material-ui/Menu';
 import Divider from 'material-ui/Divider';
 
 const HeaderIconButtonStyle = {
@@ -16,38 +18,135 @@ const listItemStyle = {
 
 class NavLeftList extends React.Component {
 
-	handleChange = (event, value) => {
+	state = {
+	    index: 0,
+    	anchorEl: undefined,
+    	open: false,
+  	};
+
+  	button = undefined;
+
+	handleChange = (event, index, value) => {
+		this.setState({ index });
 		hashHistory.push(value);
-	}
+	};
+
+	handleChangeIndex = (index) => {
+		this.setState({ index });
+	};
+
+	handleClick = (event) => {
+    	this.setState({ open: true, anchorEl: event.currentTarget });
+  	};
+
+  	handleRequestClose = () => {
+    	this.setState({ open: false });
+  	};
+
+
+	// handleChange = (event, value) => {
+	// 	hashHistory.push(value);
+	// }
 
 	render() {
+    	const { colorOption } = this.props;
 		return (
 			<ul className="list-unstyled list-inline">
 				<li className="list-inline-item">
-					<IconMenu iconButtonElement={< IconButton style = {
-						HeaderIconButtonStyle
-					}
-					className = "md-button header-btn" > <i className="material-icons">notifications_none</i> < span className = "badge" > 3 < /span> </IconButton >} onChange={this.handleChange} anchorOrigin={{
-						horizontal: 'left',
-						vertical: 'bottom'
-					}} targetOrigin={{
-						horizontal: 'left',
-						vertical: 'top'
-					}} menuStyle={{
-						minWidth: '250px'
-					}}>
-						<MenuItem className="header-icon-dropdown-item" leftIcon={< i className = "material-icons" > mail_outline < /i>} primaryText="New mail from Susan" secondaryText={< span className = "text-muted" > 5 min ago < /span>}/>
-						<MenuItem className="header-icon-dropdown-item" leftIcon={< i className = "material-icons" > mail_outline < /i>} primaryText="New mail from John" secondaryText={< span className = "text-muted" > 1 h ago < /span>}/>
-						<Divider/>
-						<MenuItem className="header-icon-dropdown-item" leftIcon={< i className = "material-icons" > chat_bubble_outline < /i>} primaryText="Message from Anna" secondaryText={< span className = "text-muted" > 5 min ago < /span>}/>
-						<MenuItem className="header-icon-dropdown-item" leftIcon={< i className = "material-icons" > chat_bubble_outline < /i>} primaryText="Message from Jane" secondaryText={< span className = "text-muted" > 1 h ago < /span>}/>
-						<Divider/>
-						<MenuItem className="header-icon-dropdown-item" leftIcon={< i className = "material-icons" > notifications_none < /i>} primaryText="Copy task completed"/>
-					</IconMenu>
+					<Button
+						aria-owns="simple-menu"
+						aria-haspopup="false"
+						onClick={this.handleClick}
+						className = "md-button header-btn">
+						<i className="material-icons">notifications_none</i>
+						<span className= "badge"> 3 </span>
+					</Button>
+					<Menu
+						id="simple-menu"
+						anchorEl={this.state.anchorEl}
+						open={this.state.open}
+						onRequestClose={this.handleRequestClose}>
+						<MenuItem onClick={this.handleRequestClose}
+							className={classnames('header-icon-dropdown-item', {
+								'bg-color-medlight': ['11', '12', '13', '14', '15', '16'].indexOf(colorOption) >= 0,
+								'bg-color-meddark': ['21', '22', '23', '24', '25', '26'].indexOf(colorOption) >= 0
+							})}>
+							<div>
+								<i className= "material-icons"> mail_outline </i>
+								<span>New mail from Susan</span>
+							</div>
+							<div>
+								<span className= "text-muted"> 5 min ago </span>
+							</div>
+						</MenuItem>
+						<Divider inset />
+
+						<MenuItem onClick={this.handleRequestClose}
+							className={classnames('header-icon-dropdown-item', {
+								'bg-color-medlight': ['11', '12', '13', '14', '15', '16'].indexOf(colorOption) >= 0,
+								'bg-color-meddark': ['21', '22', '23', '24', '25', '26'].indexOf(colorOption) >= 0
+							})}>
+							<div>
+								<i className= "material-icons"> mail_outline </i>
+								<span>New mail from John</span>
+							</div>
+							<div>
+								<span className= "text-muted"> 1 h ago </span>
+							</div>
+						</MenuItem>
+						<Divider inset />
+
+						<MenuItem onClick={this.handleRequestClose}
+							className={classnames('header-icon-dropdown-item', {
+								'bg-color-medlight': ['11', '12', '13', '14', '15', '16'].indexOf(colorOption) >= 0,
+								'bg-color-meddark': ['21', '22', '23', '24', '25', '26'].indexOf(colorOption) >= 0
+							})}>
+							<div>
+								<i className= "material-icons"> mail_outline </i>
+								<span>New mail from Anna</span>
+							</div>
+							<div>
+								<span className= "text-muted"> 5 min ago </span>
+							</div>
+						</MenuItem>
+						<Divider inset />
+
+						<MenuItem onClick={this.handleRequestClose}
+							className={classnames('header-icon-dropdown-item', {
+								'bg-color-medlight': ['11', '12', '13', '14', '15', '16'].indexOf(colorOption) >= 0,
+								'bg-color-meddark': ['21', '22', '23', '24', '25', '26'].indexOf(colorOption) >= 0
+							})}>
+							<div>
+								<i className= "material-icons"> chat_bubble_outline </i>
+								<span>Message from Jane</span>
+							</div>
+							<div>
+								<span className= "text-muted"> 1 h ago </span>
+							</div>
+						</MenuItem>
+						<Divider inset />
+
+						<MenuItem onClick={this.handleRequestClose}
+							className={classnames('header-icon-dropdown-item', {
+								'bg-color-medlight': ['11', '12', '13', '14', '15', '16'].indexOf(colorOption) >= 0,
+								'bg-color-meddark': ['21', '22', '23', '24', '25', '26'].indexOf(colorOption) >= 0
+							})}>
+							<div>
+								<i className= "material-icons"> notifications_none </i>
+								<span>Copy task completed</span>
+							</div>
+						</MenuItem>
+					</Menu>
 				</li>
 			</ul>
 		);
 	}
 }
 
-module.exports = NavLeftList;
+const mapStateToProps = state => ({
+    colorOption: state.settings.colorOption
+});
+
+module.exports = connect(
+    mapStateToProps
+)(NavLeftList);

@@ -1,0 +1,179 @@
+[
+	{
+		"id": 1866,
+		"name": "One Playlist",
+		"playlistType": "DATA_PLAYLIST",
+		"lastModified": "2017-04-26 09:27:10",
+		"thumbnailDownloadPaths": {
+			"extraSmall": "/resources/thumbnails/68590_medium.png",
+			"small": "/resources/thumbnails/68590_mediumLarge.png",
+			"mediumSmall": "/resources/thumbnails/68590_playlist.png",
+			"medium": "/resources/thumbnails/68590_large.png",
+			"large": "/resources/thumbnails/68590_extraLarge.png"
+		},
+		"prettifyDuration": "(0:00:07.00)",
+		"enableSmartPlaylist": false,
+		"readOnly": false,
+		"healthy": true
+	},
+	{
+		"id": 148,
+		"name": "Master_2732x3840",
+		"description": "A simple playlist that includes the 3 videos commissioned for the grand opening of the wall. It also includes \"black.jpg\" in between each video to control the length of the pause between each.",
+		"playlistType": "MEDIA_PLAYLIST",
+		"lastModified": "2017-04-24 13:07:40",
+		"thumbnailDownloadPaths": {
+			"extraSmall": "/resources/thumbnails/7042_medium.png",
+			"small": "/resources/thumbnails/7042_mediumLarge.png",
+			"mediumSmall": "/resources/thumbnails/7042_playlist.png",
+			"medium": "/resources/thumbnails/7042_large.png",
+			"large": "/resources/thumbnails/7042_extraLarge.png"
+		},
+		"prettifyDuration": "(0:05:21.71 - 0:05:35.71)",
+		"enableSmartPlaylist": false,
+		"readOnly": false,
+		"healthy": false
+	},
+	{
+		"id": 1859,
+		"name": "ant",
+		"description": "adf",
+		"playlistType": "MEDIA_PLAYLIST",
+		"lastModified": "2017-04-21 13:53:10",
+		"thumbnailDownloadPaths": {
+			"extraSmall": "/resources/thumbnails/8792_medium.png",
+			"small": "/resources/thumbnails/8792_mediumLarge.png",
+			"mediumSmall": "/resources/thumbnails/8792_playlist.png",
+			"medium": "/resources/thumbnails/8792_large.png",
+			"large": "/resources/thumbnails/8792_extraLarge.png"
+		},
+		"prettifyDuration": "(0:01:46.76 - 0:02:00.76)",
+		"enableSmartPlaylist": false,
+		"readOnly": false,
+		"healthy": false
+	},
+	{
+		"id": 1861,
+		"name": "New Test Playlist",
+		"description": "This is a new playlist for testing this feature",
+		"playlistType": "DATA_PLAYLIST",
+		"lastModified": "2017-04-05 08:06:06",
+		"prettifyDuration": "(0)",
+		"enableSmartPlaylist": false,
+		"readOnly": false,
+		"healthy": true
+	},
+	{
+		"id": 1860,
+		"name": "Scala UI/UX Playlist",
+		"playlistType": "MEDIA_PLAYLIST",
+		"lastModified": "2017-03-30 11:04:06",
+		"thumbnailDownloadPaths": {
+			"extraSmall": "/resources/thumbnails/68588_medium.png",
+			"small": "/resources/thumbnails/68588_mediumLarge.png",
+			"mediumSmall": "/resources/thumbnails/68588_playlist.png",
+			"medium": "/resources/thumbnails/68588_large.png",
+			"large": "/resources/thumbnails/68588_extraLarge.png"
+		},
+		"prettifyDuration": "(17:05:14.00)",
+		"enableSmartPlaylist": false,
+		"readOnly": false,
+		"healthy": true
+	},
+	{
+		"id": 1858,
+		"name": "Luis",
+		"playlistType": "MEDIA_PLAYLIST",
+		"lastModified": "2017-02-15 14:07:22",
+		"prettifyDuration": "(0)",
+		"enableSmartPlaylist": true,
+		"readOnly": false,
+		"healthy": true
+	},
+	{
+		"id": 358,
+		"name": "16:9 Transparent (DO NOT EDIT OR DELETE)",
+		"playlistType": "MEDIA_PLAYLIST",
+		"lastModified": "2014-08-21 15:35:02",
+		"thumbnailDownloadPaths": {
+			"extraSmall": "/resources/thumbnails/6780_medium.png",
+			"small": "/resources/thumbnails/6780_mediumLarge.png",
+			"mediumSmall": "/resources/thumbnails/6780_playlist.png",
+			"medium": "/resources/thumbnails/6780_large.png",
+			"large": "/resources/thumbnails/6780_extraLarge.png"
+		},
+		"prettifyDuration": "(0:00:00.00)",
+		"enableSmartPlaylist": false,
+		"readOnly": false,
+		"healthy": true
+	},
+	{
+		"id": 149,
+		"name": "Smart Playlist Example",
+		"description": "An example of how smart playlists can be used to serve up new content automatically. The best way to do this is via categories or file name conventions. E.g. Museum marketing files are always uploaded with \"MusMrkt_\" as a prefix to the file name.",
+		"playlistType": "MEDIA_PLAYLIST",
+		"lastModified": "2014-08-21 15:34:19",
+		"thumbnailDownloadPaths": {
+			"extraSmall": "/resources/thumbnails/8795_medium.png",
+			"small": "/resources/thumbnails/8795_mediumLarge.png",
+			"mediumSmall": "/resources/thumbnails/8795_playlist.png",
+			"medium": "/resources/thumbnails/8795_large.png",
+			"large": "/resources/thumbnails/8795_extraLarge.png"
+		},
+		"prettifyDuration": "(0:00:10.00)",
+		"enableSmartPlaylist": true,
+		"readOnly": false,
+		"healthy": true
+	},
+	{
+		"id": 366,
+		"name": "Calibration",
+		"playlistType": "MEDIA_PLAYLIST",
+		"lastModified": "2014-08-21 15:23:10",
+		"thumbnailDownloadPaths": {
+			"extraSmall": "/resources/thumbnails/8792_medium.png",
+			"small": "/resources/thumbnails/8792_mediumLarge.png",
+			"mediumSmall": "/resources/thumbnails/8792_playlist.png",
+			"medium": "/resources/thumbnails/8792_large.png",
+			"large": "/resources/thumbnails/8792_extraLarge.png"
+		},
+		"prettifyDuration": "(0:00:07.00)",
+		"enableSmartPlaylist": false,
+		"readOnly": false,
+		"healthy": true
+	},
+	{
+		"id": 363,
+		"name": "sub-playlist",
+		"playlistType": "MEDIA_PLAYLIST",
+		"lastModified": "2014-08-05 04:25:10",
+		"thumbnailDownloadPaths": {
+			"extraSmall": "/webapp/images/html.png",
+			"small": "/webapp/images/html.png",
+			"mediumSmall": "/webapp/images/html.png",
+			"medium": "/webapp/images/html.png",
+			"large": "/webapp/images/html.png"
+		},
+		"prettifyDuration": "(0:00:30.00)",
+		"enableSmartPlaylist": false,
+		"readOnly": false,
+		"healthy": true
+	},
+	{
+		"id": 359,
+		"name": "16:9 Content",
+		"playlistType": "MEDIA_PLAYLIST",
+		"lastModified": "2014-08-04 20:37:31",
+		"thumbnailDownloadPaths": {
+			"extraSmall": "/resources/thumbnails/6788_medium.png",
+			"small": "/resources/thumbnails/6788_mediumLarge.png",
+			"mediumSmall": "/resources/thumbnails/6788_playlist.png",
+			"medium": "/resources/thumbnails/6788_large.png",
+			"large": "/resources/thumbnails/6788_extraLarge.png"
+		},
+		"prettifyDuration": "(0:00:30.12)",
+		"enableSmartPlaylist": false,
+		"readOnly": false,
+		"healthy": false
+	}
+]

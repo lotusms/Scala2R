@@ -1,9 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import classnames from 'classnames';
-import IconMenu from 'material-ui/IconMenu';
-import MenuItem from 'material-ui/MenuItem';
-import IconButton from 'material-ui/IconButton/IconButton';
 import QueueAnim from 'rc-queue-anim';
 import KPIsChart from './KPIsChart';
 import AquisitionChart from './AquisitionChart';
@@ -12,13 +9,62 @@ import EngagementStats from './EngagementStats';
 import BenchmarkChart from './BenchmarkChart';
 import { Row, Col, getRowProps, getColumnProps } from 'react-flexbox-grid';
 
-const IconButtonStyle = {
-	color: '#eee'
+import PropTypes from 'prop-types';
+import SwipeableViews from 'react-swipeable-views';
+import Tabs, { Tab } from 'material-ui/Tabs';
+//import { withWidth } from 'material-ui/utils/withWidth';
+import Button from 'material-ui/Button';
+import Menu, { MenuItem } from 'material-ui/Menu';
+
+
+const TabContainer = (props) => (
+	<div style={{ padding: 20 }}>
+    	{props.children}
+	</div>
+);
+
+TabContainer.propTypes = {
+  	children: PropTypes.node.isRequired,
 };
 
 class DashboardContent extends React.Component {
+
+	// constructor(props) {
+	//     super(props);
+	//     this.state = {
+	//   		slideIndex: 0,
+	//     };
+	//  }
+
+	state = {
+	    index: 0,
+    	anchorEl: undefined,
+    	open: false,
+  	};
+
+  	button = undefined;
+
+	handleChange = (event, index) => {
+		this.setState({ index });
+	};
+
+	handleChangeIndex = (index) => {
+		this.setState({ index });
+	};
+
+	handleClick = (event) => {
+    	this.setState({ open: true, anchorEl: event.currentTarget });
+  	};
+
+  	handleRequestClose = () => {
+    	this.setState({ open: false });
+  	};
+
+
   	render() {
     	const { colorOption } = this.props;
+    	const classes = this.props.classes;
+
 		const Statusboxes = () => (
 			<Row>
 				<Col xs={12} sm={4} md={2}>
@@ -28,21 +74,32 @@ class DashboardContent extends React.Component {
 	                	})}>
 						<Row between="xs" className="box-top">
 							<span className="box-title">Media</span>
-							<IconMenu
-	            				iconButtonElement={<IconButton style={IconButtonStyle}><i className="material-icons">more_vert</i></IconButton>}
-			            		onChange={this.handleChange}
-			            		anchorOrigin={{horizontal: 'right', vertical: 'bottom'}}
-			            		targetOrigin={{horizontal: 'right', vertical: 'top'}}
-			            		menuStyle={{minWidth: '150px'}}>
-			            		<MenuItem
-			              			primaryText="Details"
-			              			style={{fontSize: '14px', lineHeight: '48px'}}
-			                        />
-	            				<MenuItem
-									primaryText="Refresh"
-									style={{fontSize: '14px', lineHeight: '48px'}}
-									/>
-	          				</IconMenu>
+							<Button
+				          		aria-owns="simple-menu"
+				          		aria-haspopup="true"
+				          		onClick={this.handleClick}>
+				          		<i className="material-icons">more_vert</i>
+					        </Button>
+							<Menu
+      							id="simple-menu"
+      							anchorEl={this.state.anchorEl}
+      							open={this.state.open}
+      							onRequestClose={this.handleRequestClose}>
+								<MenuItem onClick={this.handleRequestClose}
+									className={classnames('menu-item', {
+										'bg-color-medlight': ['11', '12', '13', '14', '15', '16'].indexOf(colorOption) >= 0,
+										'bg-color-meddark': ['21', '22', '23', '24', '25', '26'].indexOf(colorOption) >= 0
+									})}>
+									Details
+								</MenuItem>
+								<MenuItem onClick={this.handleRequestClose}
+									className={classnames('menu-item', {
+										'bg-color-medlight': ['11', '12', '13', '14', '15', '16'].indexOf(colorOption) >= 0,
+										'bg-color-meddark': ['21', '22', '23', '24', '25', '26'].indexOf(colorOption) >= 0
+									})}>
+									Refresh
+								</MenuItem>
+							</Menu>
 						</Row>
 						<Col xs={12} className="box-info">
 							<Row center="xs">
@@ -63,21 +120,32 @@ class DashboardContent extends React.Component {
 	                	})}>
 						<Row between="xs" className="box-top">
 							<span className="box-title">Players</span>
-							<IconMenu
-	            				iconButtonElement={<IconButton style={IconButtonStyle}><i className="material-icons">more_vert</i></IconButton>}
-			            		onChange={this.handleChange}
-			            		anchorOrigin={{horizontal: 'right', vertical: 'bottom'}}
-			            		targetOrigin={{horizontal: 'right', vertical: 'top'}}
-			            		menuStyle={{minWidth: '150px'}}>
-			            		<MenuItem
-			              			primaryText="Details"
-			              			style={{fontSize: '14px', lineHeight: '48px'}}
-			                        />
-	            				<MenuItem
-									primaryText="Refresh"
-									style={{fontSize: '14px', lineHeight: '48px'}}
-									/>
-	          				</IconMenu>
+							<Button
+				          		aria-owns="simple-menu"
+				          		aria-haspopup="true"
+				          		onClick={this.handleClick}>
+				          		<i className="material-icons">more_vert</i>
+					        </Button>
+							<Menu
+      							id="simple-menu"
+      							anchorEl={this.state.anchorEl}
+      							open={this.state.open}
+      							onRequestClose={this.handleRequestClose}>
+								<MenuItem onClick={this.handleRequestClose}
+									className={classnames('menu-item', {
+										'bg-color-medlight': ['11', '12', '13', '14', '15', '16'].indexOf(colorOption) >= 0,
+										'bg-color-meddark': ['21', '22', '23', '24', '25', '26'].indexOf(colorOption) >= 0
+									})}>
+									Details
+								</MenuItem>
+								<MenuItem onClick={this.handleRequestClose}
+									className={classnames('menu-item', {
+										'bg-color-medlight': ['11', '12', '13', '14', '15', '16'].indexOf(colorOption) >= 0,
+										'bg-color-meddark': ['21', '22', '23', '24', '25', '26'].indexOf(colorOption) >= 0
+									})}>
+									Refresh
+								</MenuItem>
+							</Menu>
 						</Row>
 						<Col xs={12} className="box-info">
 							<Row center="xs">
@@ -98,21 +166,32 @@ class DashboardContent extends React.Component {
 	                	})}>
 						<Row between="xs" className="box-top">
 							<span className="box-title">Playlists</span>
-							<IconMenu
-	            				iconButtonElement={<IconButton style={IconButtonStyle}><i className="material-icons">more_vert</i></IconButton>}
-			            		onChange={this.handleChange}
-			            		anchorOrigin={{horizontal: 'right', vertical: 'bottom'}}
-			            		targetOrigin={{horizontal: 'right', vertical: 'top'}}
-			            		menuStyle={{minWidth: '150px'}}>
-			            		<MenuItem
-			              			primaryText="Details"
-			              			style={{fontSize: '14px', lineHeight: '48px'}}
-			                        />
-	            				<MenuItem
-									primaryText="Refresh"
-									style={{fontSize: '14px', lineHeight: '48px'}}
-									/>
-	          				</IconMenu>
+							<Button
+				          		aria-owns="simple-menu"
+				          		aria-haspopup="true"
+				          		onClick={this.handleClick}>
+				          		<i className="material-icons">more_vert</i>
+					        </Button>
+							<Menu
+      							id="simple-menu"
+      							anchorEl={this.state.anchorEl}
+      							open={this.state.open}
+      							onRequestClose={this.handleRequestClose}>
+								<MenuItem onClick={this.handleRequestClose}
+									className={classnames('menu-item', {
+										'bg-color-medlight': ['11', '12', '13', '14', '15', '16'].indexOf(colorOption) >= 0,
+										'bg-color-meddark': ['21', '22', '23', '24', '25', '26'].indexOf(colorOption) >= 0
+									})}>
+									Details
+								</MenuItem>
+								<MenuItem onClick={this.handleRequestClose}
+									className={classnames('menu-item', {
+										'bg-color-medlight': ['11', '12', '13', '14', '15', '16'].indexOf(colorOption) >= 0,
+										'bg-color-meddark': ['21', '22', '23', '24', '25', '26'].indexOf(colorOption) >= 0
+									})}>
+									Refresh
+								</MenuItem>
+							</Menu>
 						</Row>
 						<Col xs={12} className="box-info">
 							<Row center="xs">
@@ -133,21 +212,32 @@ class DashboardContent extends React.Component {
 	                	})}>
 						<Row between="xs" className="box-top">
 							<span className="box-title">Channels</span>
-							<IconMenu
-	            				iconButtonElement={<IconButton style={IconButtonStyle}><i className="material-icons">more_vert</i></IconButton>}
-			            		onChange={this.handleChange}
-			            		anchorOrigin={{horizontal: 'right', vertical: 'bottom'}}
-			            		targetOrigin={{horizontal: 'right', vertical: 'top'}}
-			            		menuStyle={{minWidth: '150px'}}>
-			            		<MenuItem
-			              			primaryText="Details"
-			              			style={{fontSize: '14px', lineHeight: '48px'}}
-			                        />
-	            				<MenuItem
-									primaryText="Refresh"
-									style={{fontSize: '14px', lineHeight: '48px'}}
-									/>
-	          				</IconMenu>
+							<Button
+				          		aria-owns="simple-menu"
+				          		aria-haspopup="true"
+				          		onClick={this.handleClick}>
+				          		<i className="material-icons">more_vert</i>
+					        </Button>
+							<Menu
+      							id="simple-menu"
+      							anchorEl={this.state.anchorEl}
+      							open={this.state.open}
+      							onRequestClose={this.handleRequestClose}>
+								<MenuItem onClick={this.handleRequestClose}
+									className={classnames('menu-item', {
+										'bg-color-medlight': ['11', '12', '13', '14', '15', '16'].indexOf(colorOption) >= 0,
+										'bg-color-meddark': ['21', '22', '23', '24', '25', '26'].indexOf(colorOption) >= 0
+									})}>
+									Details
+								</MenuItem>
+								<MenuItem onClick={this.handleRequestClose}
+									className={classnames('menu-item', {
+										'bg-color-medlight': ['11', '12', '13', '14', '15', '16'].indexOf(colorOption) >= 0,
+										'bg-color-meddark': ['21', '22', '23', '24', '25', '26'].indexOf(colorOption) >= 0
+									})}>
+									Refresh
+								</MenuItem>
+							</Menu>
 						</Row>
 						<Col xs={12} className="box-info">
 							<Row center="xs">
@@ -168,21 +258,32 @@ class DashboardContent extends React.Component {
 	                	})}>
 						<Row between="xs" className="box-top">
 							<span className="box-title">Networks</span>
-							<IconMenu
-	            				iconButtonElement={<IconButton style={IconButtonStyle}><i className="material-icons">more_vert</i></IconButton>}
-			            		onChange={this.handleChange}
-			            		anchorOrigin={{horizontal: 'right', vertical: 'bottom'}}
-			            		targetOrigin={{horizontal: 'right', vertical: 'top'}}
-			            		menuStyle={{minWidth: '150px'}}>
-			            		<MenuItem
-			              			primaryText="Details"
-			              			style={{fontSize: '14px', lineHeight: '48px'}}
-			                        />
-	            				<MenuItem
-									primaryText="Refresh"
-									style={{fontSize: '14px', lineHeight: '48px'}}
-									/>
-	          				</IconMenu>
+							<Button
+				          		aria-owns="simple-menu"
+				          		aria-haspopup="true"
+				          		onClick={this.handleClick}>
+				          		<i className="material-icons">more_vert</i>
+					        </Button>
+							<Menu
+      							id="simple-menu"
+      							anchorEl={this.state.anchorEl}
+      							open={this.state.open}
+      							onRequestClose={this.handleRequestClose}>
+								<MenuItem onClick={this.handleRequestClose}
+									className={classnames('menu-item', {
+										'bg-color-medlight': ['11', '12', '13', '14', '15', '16'].indexOf(colorOption) >= 0,
+										'bg-color-meddark': ['21', '22', '23', '24', '25', '26'].indexOf(colorOption) >= 0
+									})}>
+									Details
+								</MenuItem>
+								<MenuItem onClick={this.handleRequestClose}
+									className={classnames('menu-item', {
+										'bg-color-medlight': ['11', '12', '13', '14', '15', '16'].indexOf(colorOption) >= 0,
+										'bg-color-meddark': ['21', '22', '23', '24', '25', '26'].indexOf(colorOption) >= 0
+									})}>
+									Refresh
+								</MenuItem>
+							</Menu>
 						</Row>
 						<Col xs={12} className="box-info">
 							<Row center="xs">
@@ -203,21 +304,32 @@ class DashboardContent extends React.Component {
 	                	})}>
 						<Row between="xs" className="box-top">
 							<span className="box-title">Users</span>
-							<IconMenu
-	            				iconButtonElement={<IconButton style={IconButtonStyle}><i className="material-icons">more_vert</i></IconButton>}
-			            		onChange={this.handleChange}
-			            		anchorOrigin={{horizontal: 'right', vertical: 'bottom'}}
-			            		targetOrigin={{horizontal: 'right', vertical: 'top'}}
-			            		menuStyle={{minWidth: '150px'}}>
-			            		<MenuItem
-			              			primaryText="Details"
-			              			style={{fontSize: '14px', lineHeight: '48px'}}
-			                        />
-	            				<MenuItem
-									primaryText="Refresh"
-									style={{fontSize: '14px', lineHeight: '48px'}}
-									/>
-	          				</IconMenu>
+							<Button
+				          		aria-owns="simple-menu"
+				          		aria-haspopup="true"
+				          		onClick={this.handleClick}>
+				          		<i className="material-icons">more_vert</i>
+					        </Button>
+							<Menu
+      							id="simple-menu"
+      							anchorEl={this.state.anchorEl}
+      							open={this.state.open}
+      							onRequestClose={this.handleRequestClose}>
+								<MenuItem onClick={this.handleRequestClose}
+									className={classnames('menu-item', {
+										'bg-color-medlight': ['11', '12', '13', '14', '15', '16'].indexOf(colorOption) >= 0,
+										'bg-color-meddark': ['21', '22', '23', '24', '25', '26'].indexOf(colorOption) >= 0
+									})}>
+									Details
+								</MenuItem>
+								<MenuItem onClick={this.handleRequestClose}
+									className={classnames('menu-item', {
+										'bg-color-medlight': ['11', '12', '13', '14', '15', '16'].indexOf(colorOption) >= 0,
+										'bg-color-meddark': ['21', '22', '23', '24', '25', '26'].indexOf(colorOption) >= 0
+									})}>
+									Refresh
+								</MenuItem>
+							</Menu>
 						</Row>
 						<Col xs={12} className="box-info">
 							<Row center="xs">
@@ -310,29 +422,47 @@ class DashboardContent extends React.Component {
 		);
 
 		return (
-			<section className="chapter">
-				<article className="article">
-					<h2
-		              className={classnames('article-title', {
-		                'bg-color-medlight': ['11'].indexOf(colorOption) >= 0,
-		                'bg-color-meddark': ['21'].indexOf(colorOption) >= 0,
-		                'bg-color-primary': ['12', '22'].indexOf(colorOption) >= 0,
-		                'bg-color-success': ['13', '23'].indexOf(colorOption) >= 0,
-		                'bg-color-info': ['14', '24'].indexOf(colorOption) >= 0,
-		                'bg-color-warning': ['15', '25'].indexOf(colorOption) >= 0,
-		                'bg-color-danger': ['16', '26'].indexOf(colorOption) >= 0
-		                  })}>
-		                  <i className="material-icons">dashboard</i> Dashboard</h2>
-				  	<QueueAnim type="bottom" className="ui-animate main-content">
-						<div key="1"><Statusboxes /></div>
-  				        <div key="2"><Main /></div>
-  				        <div key="3"><Engagement /></div>
-  			      	</QueueAnim>
-				</article>
-			</section>
+			<div>
+				<h2 className="article-title dashboard-title">
+					<i className="material-icons">dashboard</i>
+					Dashboard
+				</h2>
+				<Tabs
+          			onChange={this.handleChange}
+            		index={this.state.index}
+	                className="dashboard-tabs">
+		          	<Tab label="Main"/>
+		          	<Tab label="Analytics"/>
+		          	<Tab label="Live Widgets"/>
+        		</Tabs>
+        		<SwipeableViews
+          			index={this.state.index}
+          			onChangeIndex={this.handleChangeIndex}>
+		          	<TabContainer>
+						<section className="chapter">
+							<article className="article">
+							  	<QueueAnim type="bottom" className="ui-animate main-content">
+									<div key="1"><Statusboxes /></div>
+			  				        <div key="2"><Main /></div>
+			  				        <div key="3"><Engagement /></div>
+			  			      	</QueueAnim>
+							</article>
+						</section>
+		          	</TabContainer>
+
+		          	<TabContainer>
+		            	slide n°2
+		          	</TabContainer>
+
+		          	<TabContainer>
+		            	slide n°3
+		          	</TabContainer>
+        		</SwipeableViews>
+      		</div>
 		);
   	}
 }
+
 
 const mapStateToProps = state => ({
     colorOption: state.settings.colorOption

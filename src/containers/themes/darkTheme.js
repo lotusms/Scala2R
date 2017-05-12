@@ -5,11 +5,9 @@ import {
   green600, green400, green200,
   fullWhite,
 } from 'material-ui/styles/colors';
-import {fade} from 'material-ui/utils/colorManipulator';
+import {fade} from 'material-ui/styles/colorManipulator';
 import spacing from 'material-ui/styles/spacing';
 
-// $dark:                  #333C44 !default; // darken Blue 100 > #343E46
-// $theme_dark_text_color:       rgba(255,255,255,.7);
 
 export default {
   spacing,

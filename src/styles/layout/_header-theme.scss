@@ -1,6 +1,19 @@
 // theme
 
+.fixed-header {
+	.app-header {
+		position: fixed;
+		left: 0;
+		top: 0;
+		right: 0;
+	}
+}
 .app-header {
+	display: block;
+	position: relative;
+	z-index: $l_zindex_navbar;
+	height: $l_header_height;
+	width: 100%;
 	padding: 0;
 	border: 0; // no border, otherwise other elements' height can only be ($l_header_height -1)
 	text-align: center;
@@ -8,158 +21,139 @@
 	.app-header-inner {
 		height: $l_header_height;
 		box-shadow: $header_box_shadow;
-	}
-	@media only screen and (min-width: $l_screen_md_min) {
-		text-align: inherit;
-	}
 
-	&.bg-transparent {
-		background-color: transparent !important;
-	}
-
-	.brand {
-		display: inline-block;
-		text-align: center;
-		float: left; // becasue of alignment problem with md-button in .top-nav-left
-
-		h2 {
-			font-size: 30px;
-			margin: 0;
-			line-height: $l_header_height;
-		}
-	}
-
-	.header-icon {
-		display: inline-block;
-		height: $l_header_height;
-		padding: ( ($l_header_height - $header_line_height)/2 ) 14px;
-		@media only screen and (min-width: $l_screen_md_min) {
-			padding-left: 18px;
-			padding-right: 18px;
-		}
-
-		.material-icons {
-			font-size: 24px;
-		}
-	}
-}
-
-.top-nav-left,
-.top-nav-right {
-	> ul > .list-inline-item {
-		margin: 0;
-		padding: 0;
-	}
-}
-
-.top-nav-left {
-	display: inline-block;
-
-	> ul {
-		display: inline;
-		margin: 0;
-	}
-}
-.header-left{
-	position:relative;
-	left: $l_sidebar_width - 16px;
-	ul{
-		margin-bottom:0;
-		> li{
-			> div{
-				button{
-					> div{
-						> .material-icons{
-							position:relative;
-							top:8px;
+		.header-left{
+			position:relative;
+			left: $l_sidebar_width - 16px;
+			ul{
+				margin-bottom:0;
+				> li{
+					button.md-button.header-btn{
+						height:$l_header_height;
+						> span{
+							position: relative;
+							top: -5px;
+							> .material-icons{
+								position:relative;
+								top:8px;
+							}
+							.badge{
+								position: relative;
+								background-color: $brand-danger;
+							}
 						}
 					}
 				}
 			}
 		}
+
+		.header-right {
+			font-size: 16px;
+			line-height: $header_line_height;
+			padding: 0 25px;
+			ul {
+				margin: 0;
+
+				li {
+					height: $l_header_height;
+					float: left;
+					padding-left:20px;
+					padding-right:30px;
+					.user{
+						height:100%;
+						span{
+							box-sizing: border-box;
+						    display: -webkit-box;
+						    display: -ms-flexbox;
+						    display: flex;
+						    -webkit-box-flex: 0;
+						    -ms-flex: 0 1 auto;
+						    flex: 0 1 auto;
+						    -webkit-box-orient: horizontal;
+						    -webkit-box-direction: normal;
+						    -ms-flex-direction: row;
+						    flex-direction: row;
+						    -ms-flex-wrap: wrap;
+						    flex-wrap: wrap;
+							-webkit-box-pack: center;
+						    -ms-flex-pack: center;
+							align-items: center;
+			  				justify-content: center;
+						    text-align: center;
+							.md-initials{
+								font-family:"omnes-pro";
+								background-color: rgb(185, 29, 71);
+								color: $white;
+								position:relative;
+								left:-12px;
+							}
+							.dropdown-icon{
+								position:relative;
+								top: 0px;
+					    		left: 15px;
+							}
+						}
+					}
+				}
+			}
+			.collapsedpanel-toggler{
+				padding-left:0px;
+				padding-right:0px;
+				a{
+					padding: 18px 0px;
+					width: 60px;
+					height: $l_header_height;
+					text-align: center;
+					display: inline-block;
+					.material-icons{
+						font-size:25px;
+					}
+				}
+			}
+			.open-search{
+				padding-left:0px;
+				padding-right:5px;
+				a{
+					padding: 18px 0px;
+					width: 60px;
+					height: $l_header_height;
+					text-align: center;
+					display: inline-block;
+					.material-icons{
+						font-size:25px;
+					}
+				}
+			}
+			.autocomplete{
+				z-index:1030;
+				> div{
+					position:relative;
+					top:18px;
+				}
+				input[type="text"]{
+					position:relative;
+					top:5px;
+				}
+			}
+			a {
+				&:focus,
+				&:hover {
+					text-decoration: none;
+				}
+			}
+		}
+	}
+	@media only screen and (min-width: $l_screen_md_min) {
+		text-align: inherit;
 	}
 }
-.header-right {
-	font-size: 16px;
-	line-height: $header_line_height;
-	padding: 0 25px;
-	ul {
-		margin: 0;
-	}
-	//
-	li {
-		height: $l_header_height;
-		float: left;
-		padding-left:20px;
-		padding-right:30px;
-		border-right: 1px solid $color3;
-		border-left: 1px solid $color3;
-		.dropdown-icon{
-			position:relative;
-			top: 5px;
-    		left: 5px;
-		}
-	}
-	.collapsedpanel-toggler{
-		padding-left:0px;
-		padding-right:0px;
-		border-left: 1px solid $color3;
-		a{
-			padding: 18px 0px;
-			width: 60px;
-			height: $l_header_height;
-			text-align: center;
-			display: inline-block;
-			.material-icons{
-				font-size:25px;
-			}
-		}
-	}
-	.open-search{
-		padding-left:0px;
-		padding-right:5px;
-		a{
-			padding: 18px 0px;
-			width: 60px;
-			height: $l_header_height;
-			text-align: center;
-			display: inline-block;
-			.material-icons{
-				font-size:25px;
-			}
-		}
-	}
-
-	a {
-		&:focus,
-		&:hover {
-			text-decoration: none;
-		}
-	}
 
 
-}
-.bg-color-meddark{
-	.autocomplete{
-		z-index:1030;
-		> div{
-			color: $color1 !important;
-			position:relative;
-			top:18px;
+// desktop
+@media only screen and (min-width: $l_screen_md_min) {
+	.app-header {
+		.toggle-sidebar-btn {
+			display: none;
 		}
-		input[type="text"]{
-			color: $color1 !important;
-			position:relative;
-			top:5px;
-			&::-webkit-input-placeholder,
-			&:-moz-placeholder,
-			&::-moz-placeholder,
-			&:-ms-input-placeholder{
-				color: $color1;
-			}
-		}
-	}
-	p, i, span, em, ul, li{
-		color: $color1;
 	}
 }

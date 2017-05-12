@@ -4,8 +4,6 @@ import classnames from 'classnames';
 import APPCONFIG from 'constants/Config';
 import Header from 'components/Header';
 import Sidenav from 'components/Sidenav';
-import Footer from 'components/Footer';
-import Customizer from 'components/Customizer';
 
 class MainApp extends React.Component {
 
@@ -20,19 +18,13 @@ class MainApp extends React.Component {
 					<Header/>
 
 					<div className="app-content-wrapper">
-						<div className={classnames('app-content', {
-							'bg-color-light': ['11', '12', '13', '14', '15', '16' ].indexOf(colorOption) >= 0,
-							'bg-color-dark': ['21', '22', '23', '24', '25', '26' ].indexOf(colorOption) >= 0
-						})}>
+						<div className="app-content">
 							<div className="full-height">
 								{children}
 							</div>
 						</div>
-
-						<Footer/>
 					</div>
 				</section>
-				<Customizer/>
 			</div>
 		);
 	}

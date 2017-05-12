@@ -6,12 +6,8 @@ module.exports = {
         require('./routes/charts'),
         require('./routes/dashboard'),
         require('./routes/playlist'),
-        require('./routes/ecommerce'),
-        require('./routes/forms'),
         require('./routes/pageLayouts'),
-        require('./routes/pages'),
         require('./routes/tables'),
-        require('./routes/ui'),
       ]);
     });
   },

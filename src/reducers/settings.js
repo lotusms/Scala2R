@@ -1,6 +1,5 @@
 import APPCONFIG from 'constants/Config';
 import {
-  TOGGLE_BOXED_LAYOUT,
   TOGGLE_COLLAPSED_NAV,
   TOGGLE_COLLAPSED_QUICKPANEL,
   TOGGLE_NAV_BEHIND,
@@ -15,11 +14,6 @@ const initialSettings = APPCONFIG.settings;
 const settings = (state = initialSettings, action) => {
     // console.log(action)
   switch (action.type) {
-    case TOGGLE_BOXED_LAYOUT:
-      return {
-        ...state,
-        layoutBoxed: action.isLayoutBoxed
-      };
     case TOGGLE_COLLAPSED_NAV:
       return {
         ...state,

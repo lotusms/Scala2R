@@ -1,127 +1,158 @@
-$theme_option_item_height: 60px;
 
-// Colors options
+.customizer-toggler {
+	position: absolute;
+	top: 260px;
+	right: 0px;
+	width:40px;
+	height:40px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.customizer{
+	width:300px;
+	padding:25px;
+	height: 100vh; // Fix(Safari): Fix sidebar fail to on safari
+	> div:last-child{
+		overflow:hidden !important;
+		section{
+		}
+	}
+}
+
+$theme_option_item_height: 60px; // Colors options
 // for logo (there're 2, one for sidebar-header, one for header logo, here only for sidebar-header), top header, sidebar
+
 .color-option-check {
-  position: relative;
-  display: block;
-  input[type="radio"] {
-    display: none;
-  }
-  input[type="radio"] + span:hover {
-    cursor: pointer;
-  }
-  input[type="radio"] + span {
-    position: relative;
-    > .overlay {
-      display: none;
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      right: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0,0,0,.3);
-      text-align: center;
-      line-height: 30px;
-      color: #fff;
-    }
-  }
-  input[type="radio"]:checked + span {
-    > .overlay {
-      display: block;
-    }
-  }
+	position: relative;
+	display: block;
 
-  //
-  .color-option-item {
-    overflow: hidden;
-    display: block;
-    box-shadow: 0 0 2px rgba(0,0,0,.1);
-    margin-bottom: 15px;
+	input[type="radio"] {
+		display: none;
+	}
 
-    > span {
-      display: block;
-      float: left;
-      width: 50%;
-      height: 20px;
-    }
+	input[type="radio"] + span:hover {
+		cursor: pointer;
+	}
 
-    .item-header {
-      height: 10px;
-    }
-  }
+	input[type="radio"] + span {
+		position: relative;
+
+		> .overlay {
+			display: none;
+			position: absolute;
+			top: 10px;
+			bottom: 0;
+			right: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background-color: rgba(0,0,0,.3);
+			text-align: center;
+			line-height: 30px;
+			color: #fff;
+		}
+	}
+
+	input[type="radio"]:checked + span {
+		> .overlay {
+			display: block;
+		}
+	}
+	//
+	.color-option-item {
+		overflow: hidden;
+		display: block;
+		box-shadow: 0 0 2px rgba(0,0,0,.1);
+		margin-bottom: 15px;
+
+		> span {
+			display: block;
+			float: left;
+			width: 50%;
+			height: 20px;
+		}
+
+		.item-header {
+			height: 10px;
+		}
+	}
 }
-
 // to make it more distinguishable from white color
+
 .color-option-check {
-  .bg-color-page {
-    background-color: #f1f1f1;
-    &.bg-color-dark {
-        background-color: #000000;
-        color: #fff;
-    }
-  }
+	.bg-color-page {
+		background-color: #f2f2f2;
+		height: 45px;
+		&.bg-color-dark {
+			background-color: $color3;
+			color: $color1;
+		}
+	}
 }
-
-
-
 // Themes options
+
 .theme-options {
-  > div {
-    padding: 0;
-  }
+	> div {
+		padding: 0;
+	}
 }
+
 .theme-option-check {
-  position: relative;
-  display: block;
-  margin: 0;
-  font-weight: normal;
-  input[type="radio"] {
-    display: none;
-  }
-  input[type="radio"] + span:hover {
-    cursor: pointer;
-  }
-  input[type="radio"] + span {
-    position: relative;
-    > .overlay {
-      display: none;
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      right: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      // background-color: rgba(0,0,0,.2);
-      text-align: center;
-      line-height: $theme_option_item_height;
-      color: #fff;
-      .material-icons {
-        vertical-align: bottom;
-        color: $brand-success;
-      }
-    }
-  }
-  input[type="radio"]:checked + span {
-    > .overlay {
-      display: block;
-    }
-  }
+	position: relative;
+	display: block;
+	margin: 0;
+	font-weight: normal;
 
-  //
-  .theme-option-item {
-    overflow: hidden;
-    display: block;
+	input[type="radio"] {
+		display: none;
+	}
 
-    > span {
-      display: block;
-      text-align: center;
-      height: $theme_option_item_height;
-      line-height: $theme_option_item_height;
-      text-transform: uppercase;
-    }
-  }
+	input[type="radio"] + span:hover {
+		cursor: pointer;
+	}
+
+	input[type="radio"] + span {
+		position: relative;
+
+		> .overlay {
+			display: none;
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			right: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			// background-color: rgba(0,0,0,.2);
+			text-align: center;
+			line-height: $theme_option_item_height;
+			color: #fff;
+
+			.material-icons {
+				vertical-align: bottom;
+				color: $brand-success;
+			}
+		}
+	}
+
+	input[type="radio"]:checked + span {
+		> .overlay {
+			display: block;
+		}
+	}
+	//
+	.theme-option-item {
+		overflow: hidden;
+		display: block;
+
+		> span {
+			display: block;
+			text-align: center;
+			height: $theme_option_item_height;
+			line-height: $theme_option_item_height;
+			text-transform: uppercase;
+		}
+	}
 }

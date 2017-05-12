@@ -1,0 +1,410 @@
+
+.app-inner{
+	//JOIN THE DARKNESS
+	&.bg-color-meddark{
+		> .full-height{
+			background-color: $color0;
+			&.bg-color-success{
+				//UTILITIES
+				p, i, span, em, ul, li{
+					color: $color1;
+				}
+
+				//SIDEBAR
+				.app-sidebar {
+					background-color: $bg-color-meddark;
+					.sidebar-header{
+						.logo{
+				            &.full-size{
+								.st0{display:none;}
+								.st1{display:inline;}
+								.st2{display:inline;clip-path:url(#SVGID_2_);fill:#3D3D3D;stroke:#231F20;stroke-miterlimit:10;}
+								.st3{display:none;fill:#FFFFFF;}
+								.st4{font-family:'Montserrat-Light';}
+								.st5{font-size:162.7445px;}
+								.st6{letter-spacing:-8;}
+								.st7{fill:#FFFFFF;}
+								.st8{fill:#F7323F;}
+								.st9{display:none;fill:none;stroke:#FFFFFF;stroke-miterlimit:10;}
+								.st10{fill:#FFFFFF;}
+				            }
+				            &.min-size{
+								.st0{display:none;clip-path:url(#SVGID_2_);fill:#3D3D3D;stroke:#231F20;stroke-miterlimit:10;}
+								.st1{fill:#FFFFFF;}
+								.st2{fill:#F7323F;}
+								.st3{display:none;fill:none;stroke:#FFFFFF;stroke-miterlimit:10;}
+				            }
+				        }
+					}
+					.sidebar-content{
+						.nav{
+							background-color: $bg-color-meddark;
+	    					color: $color1;
+							li{
+								&:hover, &:active, &:focus, &.active{
+									&:not(.today){
+										background-color: $brand-success;
+										a{
+											i, span{
+						    					color: $color4 !important;
+											}
+										}
+									}
+								}
+								&.nav-header{
+									&:hover, &:active, &:focus, &.active{
+										background-color: $bg-color-meddark;
+									}
+								}
+								&.today{
+									.clock, .date{
+										span, p{
+											color: $color2;
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+
+				//TOOLBAR
+				.app-header {
+					.app-header-inner {
+						background-color: $bg-color-meddark;
+						.header-right {
+							ul{
+								li{
+									border-right: 1px solid $color3;
+									border-left: 1px solid $color3;
+								}
+							}
+							.collapsedpanel-toggler{
+								border-left: 1px solid $color3;
+							}
+							.autocomplete{
+								> div{
+									color: $color1 !important;
+								}
+								input[type="text"]{
+									color: $color1 !important;
+									&::-webkit-input-placeholder,
+									&:-moz-placeholder,
+									&::-moz-placeholder,
+									&:-ms-input-placeholder{
+										color: $color1 !important;
+									}
+								}
+							}
+						}
+					}
+				}
+
+				//THEMING OPTIONS
+				.customizer{
+					> div:last-child{
+						background-color: $bg-color-meddark !important;
+						section{
+							h4{
+								&.section-header{
+									color: $color1;
+								}
+							}
+						}
+					}
+				}
+
+				//LOGIN
+				.auth-area{
+					background-color: $bg-color-meddark;
+					.auth-area-wrapper{
+						.title, .description{
+							color:$color1;
+						}
+						label{
+							color:$color2 !important;
+						}
+						input{
+							color:$color1 !important;
+						}
+						.remember-me{
+							div{
+								div{
+									div{
+										div{
+											div{
+												svg:first-child{
+													fill: $color1 !important;
+												}
+												svg:last-child{
+													fill: $brand-success !important;
+												}
+											}
+										}
+									}
+								}
+							}
+							label{
+								color:$color1 !important;
+							}
+							.forgot-password{
+								a{
+									color: $color2;
+								}
+							}
+						}
+						.sign-up{
+							a{
+								color: $color2;
+							}
+						}
+						input:-webkit-autofill,
+						input:-webkit-autofill:hover,
+						input:-webkit-autofill:focus
+						input:-webkit-autofill,
+						textarea:-webkit-autofill,
+						textarea:-webkit-autofill:hover
+						textarea:-webkit-autofill:focus,
+						select:-webkit-autofill,
+						select:-webkit-autofill:hover,
+						select:-webkit-autofill:focus {
+					 		-webkit-text-fill-color: $color1;
+						 	-webkit-box-shadow: 0 0 0px 1000px $bg-color-meddark inset;
+						 	transition: background-color 5000s ease-in-out 0s;
+						}
+					}
+					.login-button{
+						a{
+							background-color: $brand-success !important;
+							span{
+								color: $color4 !important;
+							}
+						}
+					}
+				}
+
+				//MAIN CONTENT WRAPPER
+				.app-content-wrapper{
+					.article-title{
+						background-color: $brand-success;
+						color: $color4;
+						.material-icons{
+							color: $color4;
+						}
+					}
+					.dashboard-tabs{
+						> div{
+							background-color: $bg-color-meddark !important;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	//JOIN THE LIGHT
+	&.bg-color-medlight{
+		> .full-height{
+			background-color: $color0;
+			&.bg-color-success{
+				//UTILITIES
+				p, i, span, em, ul, li{
+					color: $color4;
+				}
+
+				//SIDEBAR
+				.app-sidebar {
+					background-color: $bg-color-medlight;
+					.sidebar-header{
+						.logo{
+				            &.full-size{
+								.st0{display:none;}
+								.st1{display:inline;}
+								.st2{display:inline;clip-path:url(#SVGID_2_);fill:#3D3D3D;stroke:#231F20;stroke-miterlimit:10;}
+								.st3{display:none;fill:#FFFFFF;}
+								.st4{font-family:'Montserrat-Light';}
+								.st5{font-size:162.7445px;}
+								.st6{letter-spacing:-8;}
+								.st7{fill:#3e3e3e;}
+								.st8{fill:#F7323F;}
+								.st9{display:none;fill:none;stroke:#FFFFFF;stroke-miterlimit:10;}
+								.st10{fill:$bg-color-medlight;}
+				            }
+				            &.min-size{
+								.st0{display:none;clip-path:url(#SVGID_2_);fill:#3D3D3D;stroke:#231F20;stroke-miterlimit:10;}
+								.st1{fill:#3e3e3e;}
+								.st2{fill:#F7323F;}
+								.st3{display:none;fill:none;stroke:#FFFFFF;stroke-miterlimit:10;}
+								.st4{fill:$bg-color-medlight;}
+				            }
+				        }
+					}
+					.sidebar-content{
+						.nav{
+							background-color: $bg-color-medlight;
+	    					color: rgba(0, 0, 0, 0.87);
+							li{
+								&:hover, &:active, &:focus, &.active{
+									&:not(.today){
+										background-color: $brand-success;
+										a{
+											i, span{
+						    					color: $color4 !important;
+											}
+										}
+									}
+								}
+								&.nav-header{
+									&:hover, &:active, &:focus, &.active{
+										background-color: $bg-color-medlight;
+									}
+								}
+								&.today{
+									.clock, .date{
+										span, p{
+											color: $color8;
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+
+				//TOOLBAR
+				.app-header {
+					.app-header-inner {
+						background-color: $bg-color-medlight;
+						.header-right {
+							ul{
+								li{
+									border-right: 1px solid $color1;
+									border-left: 1px solid $color1;
+								}
+							}
+							.collapsedpanel-toggler{
+								border-left: 1px solid $color1;
+							}
+							.autocomplete{
+								> div{
+									color: $color4 !important;
+								}
+								input[type="text"]{
+									color: $color4 !important;
+									&::-webkit-input-placeholder,
+									&:-moz-placeholder,
+									&::-moz-placeholder,
+									&:-ms-input-placeholder{
+										color: $color4 !important;
+									}
+								}
+							}
+						}
+					}
+				}
+
+				//THEMING OPTIONS
+				.customizer{
+					> div:last-child{
+						background-color: $bg-color-medlight !important;
+						section{
+							h4{
+								&.section-header{
+									color: $color4;
+								}
+							}
+						}
+					}
+				}
+
+				//LOGIN
+				.auth-area{
+					background-color: $bg-color-medlight;
+					.auth-area-wrapper{
+						.title, .description{
+							color:$color4;
+						}
+						label{
+							color:$color8 !important;
+						}
+						input{
+							color:$color4 !important;
+						}
+						.remember-me{
+							div{
+								div{
+									div{
+										div{
+											div{
+												svg:first-child{
+													fill: $color4 !important;
+												}
+												svg:last-child{
+													fill: $brand-success !important;
+												}
+											}
+										}
+									}
+								}
+							}
+							label{
+								color:$color4 !important;
+							}
+							.forgot-password{
+								a{
+									color: $color8;
+								}
+							}
+						}
+						.sign-up{
+							a{
+								color: $color8;
+							}
+						}
+						input:-webkit-autofill,
+						input:-webkit-autofill:hover,
+						input:-webkit-autofill:focus
+						input:-webkit-autofill,
+						textarea:-webkit-autofill,
+						textarea:-webkit-autofill:hover
+						textarea:-webkit-autofill:focus,
+						select:-webkit-autofill,
+						select:-webkit-autofill:hover,
+						select:-webkit-autofill:focus {
+					 		-webkit-text-fill-color: $color4;
+						 	-webkit-box-shadow: 0 0 0px 1000px $bg-color-medlight inset;
+						 	transition: background-color 5000s ease-in-out 0s;
+						}
+					}
+					.login-button{
+						a{
+							background-color: $brand-success !important;
+							span{
+								color: $color4 !important;
+							}
+						}
+					}
+				}
+
+				//MAIN CONTENT WRAPPER
+				.app-content-wrapper{
+					.article-title{
+						background-color: $brand-success;
+						color: $color4;
+						.material-icons{
+							color: $color4;
+						}
+					}
+					.dashboard-tabs{
+						> div{
+							background-color: $bg-color-medlight !important;
+						}
+						button{
+							color:$color3 !important;
+						}
+					}
+				}
+			}
+		}
+	}
+}

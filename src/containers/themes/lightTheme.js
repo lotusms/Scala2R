@@ -4,14 +4,10 @@ import {
   grey100, grey300, grey400, grey500,
   white, darkBlack, fullBlack,
 } from 'material-ui/styles/colors';
-import {fade} from 'material-ui/utils/colorManipulator';
+import {fade} from 'material-ui/styles/colorManipulator';
 import spacing from 'material-ui/styles/spacing';
 
-/**
- *  Light Theme is the default theme used in material-ui. It is guaranteed to
- *  have all theme variables needed for every component. Variables not defined
- *  in a custom theme will default to these values.
- */
+
 export default {
   spacing,
   fontFamily: 'omnes-pro',

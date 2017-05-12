@@ -95,7 +95,7 @@
 $white:  #fff !default;
 $black:  #000 !default;
 $red:    #EF5350 !default; // Red 400
-$orange: #FFCA28 !default; // Amber 400
+$orange: #e08934 !default; // Amber 400
 $yellow: #ffd500 !default;
 $green:  #66BB6A !default; // Green 400
 $blue:   #2196F3 !default; // Blue 500
@@ -121,16 +121,20 @@ $color5: #AA3300;
 $color6: lighten($color4, 10%);
 $color7: lighten($color4, 30%);
 $color8: #6d6146;
+$color9: #f2f2f2;
 
 
 // Reassign color vars to semantic color scheme
 $brand-primary:             $blue !default;
 $brand-success:             $green !default;  // Accent
-$brand-info:                #00BCD4 !default; // Cyan 500
+$brand-info:                $purple !default; // Cyan 500
 $brand-info-alt:            $purple !default;
 $brand-warning:             $orange !default;
-$brand-danger:              $red !default;
+$brand-danger:              $color5 !default;
 $brand-inverse:             $gray-dark !default;
+
+$bg-color-medlight:         $color9;
+$bg-color-meddark:          $color4;
 
 
 $brand-default:             $color5 !default;

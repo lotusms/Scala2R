@@ -3,115 +3,78 @@ $font-size-small: 12px;
 $screen-sm: 768px;
 
 .body-auth {
-  background-color: $body-bg;
-  // background: url('#{$image_path}/background/1.png') no-repeat center center fixed; 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  background-size: cover; 
+	background-color: $body-bg;
+	// background: url('#{$image_path}/background/1.png') no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	background-size: cover;
 }
 
 .page-auth,
+.page-forgot,
 .page-login,
-.page-signup,
-.page-forgot {
-  padding: 0 10px;
+.page-signup {
+	height: 100vh;
+	width:100%;
+    overflow: hidden;
+    margin: 0 !important;
+	.main-body {
+		-webkit-box-flex: 1;
+	    -ms-flex: 1;
+	    flex: 1;
+	    box-sizing: border-box;
+		padding: 145px 0 0 130px;
+		@media (min-width: map-get($grid-breakpoints, md)) {
 
-  .main-body {
-    max-width: 480px;
-    margin: 0 auto;
-    padding-top: 50px;
-    @media (min-width: map-get($grid-breakpoints, md)) {
-      padding-top: 150px;
-    }
-  }
-  .body-inner {
-    position: relative;
-    padding: 20px;
-    &:before {
-      z-index: 0;
-      content: ' ';
-      line-height: 0;
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background-color: $brand-primary;
-      height: 220px;
-    }
-  }
-  .additional-info {
-    position: relative;
-    z-index: 1;
-    text-align: center;
-    font-size: $font-size-small;
-    a {
-      color: $bright;
-    }
-    .divider-h {
-      border-right: 1px solid $bright;
-      margin: 0 15px;
-    }
-  }
-
-
-  h1 {
-    font-weight: normal;
-    color: $brand-primary;
-    font-size: 38px;
-    margin-bottom: 40px;
-    a {
-      color: $brand-primary;
-    }
-  }
-
-  .card {
-    @include z-depth-2;
-    .card-content {
-      padding: 30px 20px;
-    }
-  }
-
-  .ui-input-group {
-    .form-control {
-      color: $gray;
-    }
-  }
-
-  .form-group {
-    position: relative;
-    margin: 0;
-  }
-
-  .wrapper {
-    margin-top: 50px;
-    @media (min-width: $screen-sm) {
-      margin-top: 150px;
-    }
-  }
-
-  .logo {
-    font-size: 26px;
-    font-weight: normal;
-    // text-transform: uppercase;
-    a {
-      &:hover {
-        text-decoration: none;
-      }
-    }
-  }
-}
-
-//
-.page-confirm-email {
-  .logo {
-    font-size: 24px;
-    margin-bottom: .8em;
-  }
-  .confirm-mail-icon {
-    text-align: center;
-    .material-icons {
-      color: $gray-light;
-      font-size: 100px;
-    }
-  }
+		}
+		.brand-login{
+			.logo{
+				width:450px;
+				margin-bottom: 60px;
+				img{
+					width:100%;
+				}
+			}
+			h2{
+				&.title{
+					color:$color1;
+				}
+			}
+		}
+	}
+	.auth-area{
+		width:450px;
+	    padding: 128px 48px 48px;
+		.auth-area-wrapper{
+			height: 100vh;
+			.logo{
+				display:none;
+			}
+			.title, .description{
+				margin:0 auto 15px;
+			}
+			input{
+				margin:20px auto;
+			}
+			.remember-me{
+				margin: 20px auto;
+				div{
+					padding:0;
+				}
+				div:first-child{
+					text-align:left;
+				}
+				div:last-child{
+					text-align:right;
+					label{
+						margin-left:-20px;
+					}
+				}
+			}
+			.sign-up{
+				margin:15px auto;
+				text-align:center;
+			}
+		}
+	}
 }

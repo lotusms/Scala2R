@@ -24,10 +24,7 @@ class Header extends React.Component {
 
 		return (
 			<section className="app-header">
-				<Row between="xs" className={classnames('app-header-inner', {
-					'bg-color-medlight': ['11',	'12', '13', '14', '15', '16'].indexOf(colorOption) >= 0,
-					'bg-color-meddark': ['21', '22', '23', '24', '25', '26'].indexOf(colorOption) >= 0
-					})}>
+				<Row between="xs" className="app-header-inner">
 
 					<Row start="xs" className="hidden-lg-up">
 						<a href="javascript:;" className="md-button header-icon toggle-sidebar-btn" ref={(c) => {

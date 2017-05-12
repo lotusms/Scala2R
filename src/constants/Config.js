@@ -5,7 +5,7 @@ const APPCONFIG = {
   brand: 'Scala',
   user: 'Luis Silva',
   year,
-  productLink: 'https://themeforest.net/item/material-design-reactjs-admin-web-app-with-bootstrap-4/19582625',
+  productLink: 'http://scala.com/',
   AutoCloseMobileNav: true,    // true, false. Automatically close sidenav on route change (Mobile only)
   color: {
     primary: '#AA3300',

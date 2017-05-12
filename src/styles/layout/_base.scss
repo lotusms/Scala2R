@@ -9,8 +9,29 @@ body {
 	margin: 0;
 	padding: 0;
 	background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url(../assets/images/backgrounds/scala.jpg) fixed no-repeat;
+	background-size: cover;
   	letter-spacing: 1px;
 }
+
+*{
+	outline:none !important;
+	&:hover, &:focus, &:active{
+		outline:none !important;
+	}
+}
+
+//hacking the dropdown menus
+div[role="menu"], div[role="presentation"] {
+    padding: 0 !important;
+    border-radius: 0 !important;
+	box-shadow: 0px 4px 5px -2px rgba(0, 0, 0, 0.2), 0px 7px 10px 1px rgba(0, 0, 0, 0.14), 0px 2px 16px 1px rgba(0, 0, 0, 0.12) !important;
+}
+
+div[data-reactroot] {
+    background-color: $color0 !important;
+}
+
+
 
 .full-height{
 	height: 100% !important;

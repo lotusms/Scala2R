@@ -3,8 +3,8 @@ import ReactDOM from 'react-dom';
 import { connect } from 'react-redux';
 import classnames from 'classnames';
 import injectTapEventPlugin from 'react-tap-event-plugin';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
+import createMuiTheme from 'material-ui/styles/theme';
 
 // = styles =
 // 3rd
@@ -15,59 +15,57 @@ import 'styles/theme.scss';
 import 'styles/ui.scss';
 import 'styles/app.scss';
 
-import lightTheme from './themes/lightTheme';
-import darkTheme from './themes/darkTheme';
-
-
 injectTapEventPlugin(); // Needed for onTouchTap for Material UI
 
 
 class App extends Component {
-  componentDidMount() {}
+	componentDidMount() {}
 
-  render() {
-    const { navCollapsed, panelCollapsed, navBehind, fixedHeader, sidebarWidth, theme } = this.props;
-    let materialUITheme;
-    switch (theme) {
-      case 'light':
-        materialUITheme = lightTheme;
-        break;
-      default:
-        materialUITheme = darkTheme;
-    }
+	render() {
+		const { navCollapsed, panelCollapsed, navBehind, fixedHeader, sidebarWidth, theme, colorOption } = this.props;
+    	let materialUITheme;
 
-    return (
-      <MuiThemeProvider muiTheme={getMuiTheme(materialUITheme)}>
-        <div id="app-inner">
-          <div className="preloaderbar hide"><span className="bar" /></div>
-          <div
-            className={classnames('full-height', {
-              'fixed-header': fixedHeader,
-              'nav-collapsed': navCollapsed,
-              'quickpanel-collapsed': panelCollapsed,
-              'nav-behind': navBehind,
-              'theme-dark': theme === 'dark',
-              'theme-light': theme === 'light',
-              'sidebar-sm': sidebarWidth === 'small'})
-                    }>
-            {this.props.children}
-          </div>
-        </div>
-      </MuiThemeProvider>
-    );
-  }
+    	return (
+      		<MuiThemeProvider>
+        		<div id="app-inner"
+					className={classnames('app-inner', {
+						'bg-color-medlight': ['11', '12', '13', '14', '15', '16'].indexOf(colorOption) >= 0,
+						'bg-color-meddark': ['21', '22', '23', '24', '25', '26'].indexOf(colorOption) >= 0
+					})}>
+	          		<div
+	            		className={classnames('full-height', {
+	          			'fixed-header': fixedHeader,
+	          			'nav-collapsed': navCollapsed,
+	          			'quickpanel-collapsed': panelCollapsed,
+	          			'nav-behind': navBehind,
+	          			'sidebar-sm': sidebarWidth === 'small',
+						'bg-color-medlight': ['11'].indexOf(colorOption) >= 0,
+						'bg-color-meddark': ['21'].indexOf(colorOption) >= 0,
+						'bg-color-primary': ['12', '22'].indexOf(colorOption) >= 0,
+						'bg-color-success': ['13', '23'].indexOf(colorOption) >= 0,
+						'bg-color-info': ['14', '24'].indexOf(colorOption) >= 0,
+						'bg-color-warning': ['15', '25'].indexOf(colorOption) >= 0,
+						'bg-color-danger': ['16', '26'].indexOf(colorOption) >= 0
+
+					})}>
+	            		{this.props.children}
+	          		</div>
+	        	</div>
+      		</MuiThemeProvider>
+    	);
+  	}
 }
 
 const mapStateToProps = (state, ownProps) => ({
-  layoutBoxed: state.settings.layoutBoxed,
-  navCollapsed: state.settings.navCollapsed,
-  panelCollapsed: state.settings.panelCollapsed,
-  navBehind: state.settings.navBehind,
-  fixedHeader: state.settings.fixedHeader,
-  sidebarWidth: state.settings.sidebarWidth,
-  theme: state.settings.theme,
+	navCollapsed: state.settings.navCollapsed,
+	panelCollapsed: state.settings.panelCollapsed,
+	navBehind: state.settings.navBehind,
+	fixedHeader: state.settings.fixedHeader,
+	sidebarWidth: state.settings.sidebarWidth,
+	theme: state.settings.theme,
+	colorOption: state.settings.colorOption,
 });
 
 module.exports = connect(
-  mapStateToProps
+	mapStateToProps
 )(App);

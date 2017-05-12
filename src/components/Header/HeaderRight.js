@@ -1,36 +1,82 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import classnames from 'classnames';
-import IconMenu from 'material-ui/IconMenu';
-import MenuItem from 'material-ui/MenuItem';
-import IconButton from 'material-ui/IconButton/IconButton';
-import AutoComplete from 'material-ui/AutoComplete';
 import JSONP from 'jsonp';
+import ColorOptions from 'components/Customizer';
 import ToggleDisplay from 'react-toggle-display';
 import { Row, Col, getRowProps, getColumnProps } from 'react-flexbox-grid';
 
 
-const ImgIconButtonStyle = {
-	width: '60px',
-	height: '60px'
-};
+import Button from 'material-ui/Button';
+import Menu, { MenuItem } from 'material-ui/Menu';
+import Divider from 'material-ui/Divider';
+import Drawer from 'material-ui/Drawer';
+import Avatar from 'material-ui/Avatar';
+//import AutoComplete from 'material-ui/AutoComplete';
 
-const listItemStyle = {
-	paddingLeft: '50px' // 36 + 16, algin with sub list
-};
-
-const googleAutoSuggestURL = `//suggestqueries.google.com/complete/search?client=youtube&ds=yt&q=`;
+//const googleAutoSuggestURL = `//suggestqueries.google.com/complete/search?client=youtube&ds=yt&q=`;
 
 class HeaderRight extends React.Component {
+
 	constructor(props) {
 	    super(props);
 		this.onUpdateInput = this.onUpdateInput.bind(this);
 		this.state = {
 	      	dataSource : [],
 	      	inputValue : '',
-			show: false
+			show: false,
+			open: false,
+			open: {
+				top: false,
+				left: false,
+				bottom: false,
+				right: false,
+			},
+			index: 0,
+	    	anchorEl: undefined,
 		}
 	}
+	
+	//OPENS THE CUSTOMIZER DRAWER
+	toggleCustomizerDrawer = (side, open) => {
+		const drawerState = {};
+		drawerState[side] = open;
+		this.setState({ open: drawerState });
+	};
+	//CUSTOMIZER DRAWER TOGGLE CALLS
+	handleCustomizerOpen = () => this.toggleCustomizerDrawer('right', true);
+	handleCustomizerClose = () => this.toggleCustomizerDrawer('right', false);
+
+ //  	button = undefined;
+
+	handleChange = (event, index) => {
+		this.setState({ index });
+	};
+
+	handleChangeIndex = (index) => {
+		this.setState({ index });
+	};
+
+	//OPENS THE USER MENU
+	handleOpen = (event) => {
+    	this.setState({
+			open: true,
+			anchorEl: event.currentTarget
+		});
+  	};
+
+	//CLOSES THE USER MENU
+  	handleRequestClose = () => {
+    	this.setState({ open: false });
+  	};
+
+	// handleToggle = () => this.setState({
+	// 	open: !this.state.open
+	// });
+	//
+ //  	handleClose = () => this.setState({
+	// 	open: false
+	// });
 
 	onUpdateInput(inputValue) {
 		const self = this;
@@ -79,75 +125,109 @@ class HeaderRight extends React.Component {
 				<ToggleDisplay show={!this.state.show}>
 					<ul className="list-unstyled">
 						<li>
-							<IconMenu iconButtonElement={
-								<Row middle="xs">
-									<IconButton style = { ImgIconButtonStyle } >
-										<img src="assets/images/g1.jpg" alt="" className="rounded-circle img30_30"/>
-									</IconButton>
+							<Button
+								aria-owns="user-menu"
+								aria-haspopup="true"
+								onTouchTap={this.handleOpen}
+								onRequestClose={this.handleRequestClose}
+								className= "user">
+								<span>
+									<Avatar className="md-initials">LS</Avatar>
 									<span className="user-name">Luis Silva</span>
 									<span><i className="material-icons dropdown-icon">keyboard_arrow_down</i></span>
-								</Row>
-								}
-								onChange={this.handleChange}
-								anchorOrigin={
-									{
-										horizontal: 'right',
-										vertical: 'bottom'
-									}
-								}
-								targetOrigin={
-									{
-										horizontal: 'right',
-										vertical: 'top'
-									}
-								}
-								menuStyle={
-									{
-										minWidth: '150px'
-									}
-								}>
-								<MenuItem value="/app/dashboard"
-									primaryText="Dashboard"
-									style={
-										{
-											fontSize: '14px',
-											lineHeight: '48px'
-										}
-									}
-									innerDivStyle={listItemStyle}
-									leftIcon={
-										< i className = "material-icons" > home < /i>
-									}/>
-								<MenuItem value="/app/page/about"
-									primaryText="About"
-									innerDivStyle={listItemStyle}
-									style={
-										{
-											fontSize: '14px',
-											lineHeight: '48px'
-										}
-									}
-									leftIcon={
-										< i className = "material-icons" > person_outline < /i>
-									}/>
-								<MenuItem value="/login"
-									primaryText="Log Out"
-									innerDivStyle={listItemStyle}
-									style={
-										{
-											fontSize: '14px',
-											lineHeight: '48px'
-										}
-									}
-									leftIcon={
-										< i className = "material-icons" > forward < /i>
-									}/>
-							</IconMenu>
+								</span>
+							</Button>
+							<Menu
+								id="user-menu"
+								className= "user-menu"
+								anchorEl={this.state.anchorEl}
+								open={this.state.open}
+								onRequestClose={this.handleRequestClose}>
+								<MenuItem onTouchTap={this.handleRequestClose}
+									className={classnames('menu-item', {
+										'bg-color-medlight': ['11', '12', '13', '14', '15', '16'].indexOf(colorOption) >= 0,
+										'bg-color-meddark': ['21', '22', '23', '24', '25', '26'].indexOf(colorOption) >= 0
+									})}>
+									<i className= "material-icons user-menu-icon"> assignment_ind </i>
+									User Profile
+								</MenuItem>
+								<Divider/>
+
+								<MenuItem onTouchTap={this.handleRequestClose}
+									className={classnames('menu-item', {
+										'bg-color-medlight': ['11', '12', '13', '14', '15', '16'].indexOf(colorOption) >= 0,
+										'bg-color-meddark': ['21', '22', '23', '24', '25', '26'].indexOf(colorOption) >= 0
+									})}>
+									<i className= "material-icons user-menu-icon"> poll </i>
+									User Activity
+								</MenuItem>
+								<Divider/>
+
+								<MenuItem onTouchTap={this.handleRequestClose}
+									className={classnames('menu-item', {
+										'bg-color-medlight': ['11', '12', '13', '14', '15', '16'].indexOf(colorOption) >= 0,
+										'bg-color-meddark': ['21', '22', '23', '24', '25', '26'].indexOf(colorOption) >= 0
+									})}>
+									<i className= "material-icons user-menu-icon"> settings_ethernet </i>
+									Change Roles
+								</MenuItem>
+								<Divider/>
+
+								<MenuItem onTouchTap={this.handleRequestClose}
+									className={classnames('menu-item', {
+										'bg-color-medlight': ['11', '12', '13', '14', '15', '16'].indexOf(colorOption) >= 0,
+										'bg-color-meddark': ['21', '22', '23', '24', '25', '26'].indexOf(colorOption) >= 0
+									})}>
+									<i className= "material-icons user-menu-icon"> photo_library </i>
+									Workgroups
+								</MenuItem>
+								<Divider/>
+
+								<MenuItem onTouchTap={this.handleRequestClose}
+									className={classnames('menu-item', {
+										'bg-color-medlight': ['11', '12', '13', '14', '15', '16'].indexOf(colorOption) >= 0,
+										'bg-color-meddark': ['21', '22', '23', '24', '25', '26'].indexOf(colorOption) >= 0
+									})}>
+									<i className= "material-icons user-menu-icon"> settings_input_antenna </i>
+									Switch Networks
+								</MenuItem>
+								<Divider/>
+
+								<MenuItem onTouchTap={this.handleRequestClose}
+									className={classnames('menu-item', {
+										'bg-color-medlight': ['11', '12', '13', '14', '15', '16'].indexOf(colorOption) >= 0,
+										'bg-color-meddark': ['21', '22', '23', '24', '25', '26'].indexOf(colorOption) >= 0
+									})}>
+									<i className= "material-icons user-menu-icon"> settings </i>
+									User Settings
+								</MenuItem>
+								<Divider/>
+
+								<MenuItem onTouchTap={this.handleCustomizerOpen}
+									className={classnames('menu-item', {
+										'bg-color-medlight': ['11', '12', '13', '14', '15', '16'].indexOf(colorOption) >= 0,
+										'bg-color-meddark': ['21', '22', '23', '24', '25', '26'].indexOf(colorOption) >= 0
+									})}>
+									<i className= "material-icons user-menu-icon"> color_lens </i>
+									Themes
+								</MenuItem>
+								<Divider/>
+
+								<MenuItem onTouchTap={this.handleRequestClose}
+									value="/login"
+									className={classnames('menu-item', {
+										'bg-color-medlight': ['11', '12', '13', '14', '15', '16'].indexOf(colorOption) >= 0,
+										'bg-color-meddark': ['21', '22', '23', '24', '25', '26'].indexOf(colorOption) >= 0
+									})}>
+									<i className= "material-icons user-menu-icon"> power_settings_new </i>
+									Log Out
+								</MenuItem>
+							</Menu>
 						</li>
 					</ul>
 				</ToggleDisplay>
 				<ToggleDisplay show={this.state.show}>
-					<AutoComplete
+					{/*<div
 						className="autocomplete"
           				hintText="Type anything"
 						dataSource    = {this.state.dataSource}
@@ -159,14 +239,23 @@ class HeaderRight extends React.Component {
 							    right: '114px',
 							    bottom: '0',
 							    left: '280px'
-						}}
-						/>
+						}}>
+
+					</div>*/}
 				</ToggleDisplay>
 				<span className="open-search">
-					<a href="javascript:;" onClick={ () => this.handleClick() }>
+					<a href="javascript:;" onTouchTap={ () => this.handleClick() }>
 						<i className="material-icons">search</i>
 					</a>
 				</span>
+
+				<Drawer
+					anchor="right"
+					open={this.state.open.right}
+					onRequestClose={this.handleCustomizerClose}
+					onTouchTap={this.handleCustomizerClose}>
+					<ColorOptions />
+		        </Drawer>
 			</Row>
 		);
 	}
